@@ -1,0 +1,6 @@
+description = 'tunedesc-oauthserver'
+dependencies {
+    compile project(':tunedesc-common')
+    compile project(':tunedesc-web')
+}
+

@@ -1,0 +1,63 @@
+description = 'tunedesc-web'
+
+
+
+
+
+dependencies {
+    compile project(':tunedesc-configurations')
+
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '1.3.6.RELEASE'
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("junit:junit")
+
+}
+
+//buildscript {
+//    ext.kotlin_version = '1.1.3-2'
+//    ext.spring_boot_version='1.5.4.RELEASE'
+//
+//    repositories {
+//        jcenter()
+//
+//    }
+//    dependencies {
+//        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+//        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version" // See https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugin
+//        classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
+//
+//
+//
+//    }
+//}
+//
+//apply plugin: 'kotlin'
+//apply plugin: "kotlin-spring"
+//apply plugin: 'org.springframework.boot'
+//
+//jar {
+//    baseName = 'gs-rest-service'
+//    version = '0.1.0'
+//}
+//
+//repositories {
+//	jcenter()
+//
+//}
+//
+//dependencies {
+//   // compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+//	//compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // Required for Kotlin integration
+//    //compile 'org.springframework.boot:spring-boot-starter-web'
+//    //testCompile('org.springframework.boot:spring-boot-starter-test')
+//
+//}
+//
+//compileKotlin {
+//    kotlinOptions.jvmTarget = "1.8"
+//}
+//compileTestKotlin {
+//    kotlinOptions.jvmTarget = "1.8"
+//}
