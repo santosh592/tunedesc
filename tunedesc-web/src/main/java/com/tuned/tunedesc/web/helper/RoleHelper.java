@@ -1,12 +1,15 @@
 package com.tuned.tunedesc.web.helper;
 
+import com.tuned.tunedesc.common.entity.Role;
+import com.tuned.tunedesc.common.helper.ModelDtoHelper;
 import com.tuned.tunedesc.web.dto.RoleDto;
-import com.tuned.tunedesc.web.entity.Role;
+import org.springframework.stereotype.Component;
 
-public class RoleHelper {
+@Component
+public class RoleHelper implements ModelDtoHelper<RoleDto, Role> {
 
 
-    public static RoleDto buildDto(Role role) {
+    public RoleDto buildDto(Role role) {
 
         RoleDto roledto;
 
@@ -23,7 +26,7 @@ public class RoleHelper {
 
     }
 
-    public static Role buildEntity(RoleDto roleDto) {
+    public Role buildEntity(RoleDto roleDto) {
         Role role;
 
         if (roleDto != null) {
@@ -35,5 +38,6 @@ public class RoleHelper {
         }
         return null;
     }
+
 
 }

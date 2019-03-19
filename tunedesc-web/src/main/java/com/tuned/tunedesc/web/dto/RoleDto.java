@@ -1,9 +1,8 @@
 package com.tuned.tunedesc.web.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.tuned.tunedesc.web.visitor.BaseVisitor;
+import com.tuned.tunedesc.common.dto.BaseDto;
+import com.tuned.tunedesc.common.visitor.BaseVisitor;
 
-import java.util.List;
 
 public class RoleDto extends BaseDtoImpl implements BaseDto {
 

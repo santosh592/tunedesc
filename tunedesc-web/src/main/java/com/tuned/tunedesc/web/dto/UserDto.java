@@ -1,11 +1,10 @@
 package com.tuned.tunedesc.web.dto;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.tuned.tunedesc.web.visitor.BaseVisitor;
+import com.tuned.tunedesc.common.dto.BaseDto;
+import com.tuned.tunedesc.common.visitor.BaseVisitor;
 
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 import java.util.List;
 
 public class UserDto extends BaseDtoImpl implements BaseDto {

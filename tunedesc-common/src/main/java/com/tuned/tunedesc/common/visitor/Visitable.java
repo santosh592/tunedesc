@@ -1,6 +1,6 @@
-package com.tuned.tunedesc.web.visitor;
+package com.tuned.tunedesc.common.visitor;
 
-import com.tuned.tunedesc.web.visitor.BaseVisitor;
+
 
 public interface Visitable {
 

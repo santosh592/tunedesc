@@ -1,4 +1,4 @@
-package com.tuned.tunedesc.web.entity;
+package com.tuned.tunedesc.common.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;

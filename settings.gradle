@@ -1,7 +1,6 @@
 rootProject.name = 'tunedesc-parent'
 include ':tunedesc-web'
 include ':tunedesc-oauthserver'
-include ':tuned-userapi'
 include ':tunedesc-configurations'
 include ':tunedesc-common'
 
@@ -10,8 +9,7 @@ include ':tunedesc-common'
 
 project(':tunedesc-web').projectDir = "$rootDir/tunedesc-web" as File
 project(':tunedesc-oauthserver').projectDir = "$rootDir/tunedesc-oauthserver" as File
-project(':tuned-userapi').projectDir="$rootDir/tuned-userapi" as File
-project(':tunedesc-configurations').projectDir="$rootDir/tunedesc-configurations" as File
+project(':tunedesc-configurations').projectDir = "$rootDir/tunedesc-configurations" as File
 project(':tunedesc-common').projectDir = "$rootDir/tunedesc-common" as File
 
 

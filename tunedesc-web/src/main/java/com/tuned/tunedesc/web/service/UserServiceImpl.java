@@ -1,9 +1,9 @@
 package com.tuned.tunedesc.web.service;
 
+import com.tuned.tunedesc.common.entity.User;
 import com.tuned.tunedesc.web.dto.AccountDto;
 import com.tuned.tunedesc.web.dto.ResponseDto;
 import com.tuned.tunedesc.web.dto.UserDto;
-import com.tuned.tunedesc.web.entity.User;
 import com.tuned.tunedesc.web.helper.UserHelper;
 import com.tuned.tunedesc.web.repository.SequenceIdRepository;
 import com.tuned.tunedesc.web.repository.UserRepository;
@@ -16,9 +16,12 @@ public class UserServiceImpl extends BaseServiceImpl<UserDto, User> implements U
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UserHelper userHelper;
+
     @Autowired(required = true)
-    public UserServiceImpl(UserRepository userRepository, SequenceIdRepository sequenceIdRepository) {
-        super(userRepository, sequenceIdRepository);
+    public UserServiceImpl(UserRepository userRepository, SequenceIdRepository sequenceIdRepository,UserHelper userHelper) {
+        super(userRepository, sequenceIdRepository,userHelper);
     }
 
 
@@ -53,7 +56,8 @@ public class UserServiceImpl extends BaseServiceImpl<UserDto, User> implements U
         ResponseDto reponsedto = new ResponseDto();
         User user = userRepository.findByname(username);
         if (user != null) {
-            reponsedto.setResposeobject(UserHelper.buildDto(user));
+            UserHelper userHelper=new UserHelper();
+            reponsedto.setResposeobject(userHelper.buildDto(user));
             reponsedto.setMessage("userdetails for username " + username);
         } else
             reponsedto.setMessage("user not found");

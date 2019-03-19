@@ -1,11 +1,14 @@
 package com.tuned.tunedesc.web.helper;
 
+import com.tuned.tunedesc.common.helper.ModelDtoHelper;
 import com.tuned.tunedesc.web.dto.CatogoryDto;
 import com.tuned.tunedesc.web.entity.Catogory;
+import org.springframework.stereotype.Component;
 
-public class CategoryHelper {
+@Component
+public class CategoryHelper implements ModelDtoHelper<CatogoryDto, Catogory> {
 
-    public static CatogoryDto buildDto(Catogory catogory) {
+    public CatogoryDto buildDto(Catogory catogory) {
         CatogoryDto catogoryDto = new CatogoryDto();
         catogoryDto.setId(catogory.getId());
         catogoryDto.setType(catogory.getType());
@@ -13,7 +16,7 @@ public class CategoryHelper {
 
     }
 
-    public static Catogory buildEntitiy(CatogoryDto catogoryDto) {
+    public Catogory buildEntity(CatogoryDto catogoryDto) {
         Catogory catogory = new Catogory();
 
         catogory.setId(catogoryDto.getId());

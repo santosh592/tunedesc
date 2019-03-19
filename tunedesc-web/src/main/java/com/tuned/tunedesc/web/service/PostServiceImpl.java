@@ -6,6 +6,7 @@ import com.tuned.tunedesc.web.entity.BusinessCategory;
 import com.tuned.tunedesc.web.entity.Post;
 import com.tuned.tunedesc.web.entity.PostType;
 import com.tuned.tunedesc.web.helper.BusinessCatHelper;
+import com.tuned.tunedesc.web.helper.PostHelper;
 import com.tuned.tunedesc.web.helper.PostTypeHelper;
 import com.tuned.tunedesc.web.repository.BusinessCategoryRepository;
 import com.tuned.tunedesc.web.repository.PostRepository;
@@ -28,14 +29,24 @@ public class PostServiceImpl extends BaseServiceImpl<PostDto, Post> implements P
 
     @Autowired
     private BusinessCategoryRepository businessCategoryRepository;
+    @Autowired
+    private PostHelper postHelper;
+    @Autowired
+    private BusinessCatHelper businessCatHelper;
+    @Autowired
+    private PostTypeHelper postTypeHelper;
 
 
     @Autowired ( required = true )
-    public PostServiceImpl(PostRepository postRepository, SequenceIdRepository sequenceIdRepository, PostTypeRepository postTypeRepository, BusinessCategoryRepository businessCategoryRepository) {
-        super(postRepository, sequenceIdRepository);
-
+    public PostServiceImpl(PostRepository postRepository, SequenceIdRepository sequenceIdRepository, PostTypeRepository postTypeRepository,
+                           BusinessCategoryRepository businessCategoryRepository, PostHelper postHelper, BusinessCatHelper businessCatHelper,
+                           PostTypeHelper postTypeHelper) {
+        super(postRepository, sequenceIdRepository, postHelper);
+        this.postHelper = postHelper;
         this.postTypeRepository = postTypeRepository;
         this.businessCategoryRepository = businessCategoryRepository;
+        this.businessCatHelper = businessCatHelper;
+        this.postTypeHelper = postTypeHelper;
     }
 
 
@@ -44,7 +55,7 @@ public class PostServiceImpl extends BaseServiceImpl<PostDto, Post> implements P
         List<PostType> posttypelist = postTypeRepository.findAll();
         List<CatogoryDto> postTypeDtos = new ArrayList<>();
         posttypelist.forEach(posttype -> {
-            CatogoryDto postTypeDto =  PostTypeHelper.buildDto(posttype);
+            CatogoryDto postTypeDto = postTypeHelper.buildDto(posttype);
             postTypeDtos.add(postTypeDto);
         });
         return postTypeDtos;
@@ -55,7 +66,7 @@ public class PostServiceImpl extends BaseServiceImpl<PostDto, Post> implements P
         List<BusinessCategory> businessCategorylist = businessCategoryRepository.findAll();
         List<CatogoryDto> businessTypeDtos = new ArrayList<>();
         businessCategorylist.forEach(business -> {
-            CatogoryDto businessTypeDto =  BusinessCatHelper.buildDto(business);
+            CatogoryDto businessTypeDto = businessCatHelper.buildDto(business);
             businessTypeDtos.add(businessTypeDto);
         });
         return businessTypeDtos;

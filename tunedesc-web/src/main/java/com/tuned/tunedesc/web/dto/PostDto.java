@@ -1,8 +1,9 @@
 package com.tuned.tunedesc.web.dto;
 
+import com.tuned.tunedesc.common.dto.BaseDto;
+import com.tuned.tunedesc.common.visitor.BaseVisitor;
 import com.tuned.tunedesc.web.entity.BusinessCategory;
 import com.tuned.tunedesc.web.entity.PostType;
-import com.tuned.tunedesc.web.visitor.BaseVisitor;
 
 import java.util.Date;
 

@@ -17,11 +17,9 @@ public class TestMongo {
         DBCollection collection = db.getCollection("sequence");
 
 
-
         System.out.println("1. Find first matched document");
         DBObject dbObject = collection.findOne();
         System.out.println(dbObject);
-
 
 
     }

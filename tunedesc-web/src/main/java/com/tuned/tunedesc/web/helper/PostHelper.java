@@ -1,12 +1,17 @@
 package com.tuned.tunedesc.web.helper;
 
+import com.tuned.tunedesc.common.entity.User;
+import com.tuned.tunedesc.common.helper.ModelDtoHelper;
 import com.tuned.tunedesc.web.dto.PostDto;
 import com.tuned.tunedesc.web.dto.UserDto;
 import com.tuned.tunedesc.web.entity.Post;
-import com.tuned.tunedesc.web.entity.User;
+import org.springframework.stereotype.Component;
 
-public class PostHelper {
-    public static PostDto buildDto(Post post) {
+@Component
+public class PostHelper implements ModelDtoHelper<PostDto, Post> {
+
+    @Override
+    public PostDto buildDto(Post post) {
         PostDto postDto;
 
         if (post != null) {
@@ -31,7 +36,7 @@ public class PostHelper {
 
     }
 
-    public static Post buildEntity(PostDto postDto) {
+    public Post buildEntity(PostDto postDto) {
 
         Post post;
 
@@ -53,4 +58,6 @@ public class PostHelper {
 
 
     }
+
+
 }

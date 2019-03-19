@@ -1,6 +1,8 @@
 package com.tuned.tunedesc.web.controller;
 
-import com.tuned.tunedesc.web.dto.*;
+import com.tuned.tunedesc.web.dto.CatogoryDto;
+import com.tuned.tunedesc.web.dto.PostDto;
+import com.tuned.tunedesc.web.dto.ResponseDto;
 import com.tuned.tunedesc.web.exception.SequenceException;
 import com.tuned.tunedesc.web.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;

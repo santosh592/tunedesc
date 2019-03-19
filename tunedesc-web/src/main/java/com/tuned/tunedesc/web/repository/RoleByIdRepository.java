@@ -1,11 +1,6 @@
 package com.tuned.tunedesc.web.repository;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBCollection;
-import com.mongodb.DBObject;
-import com.tuned.tunedesc.web.entity.Role;
-import org.bson.types.ObjectId;
-import org.springframework.data.mongodb.core.mapping.Document;
+
 
 public class RoleByIdRepository {
 

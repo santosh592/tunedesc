@@ -1,7 +1,8 @@
 package com.tuned.tunedesc.web.repository;
 
 
-import com.tuned.tunedesc.web.entity.User;
+
+import com.tuned.tunedesc.common.entity.User;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 

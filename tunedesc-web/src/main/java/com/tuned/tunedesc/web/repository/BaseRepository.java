@@ -2,7 +2,6 @@ package com.tuned.tunedesc.web.repository;
 
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.io.Serializable;
 

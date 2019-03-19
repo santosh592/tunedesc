@@ -1,7 +1,6 @@
 package com.tuned.tunedesc.web.entity;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.PersistenceConstructor;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -1,7 +1,8 @@
-package com.tuned.tunedesc.web.entity;
+package com.tuned.tunedesc.common.entity;
 
-import com.tuned.tunedesc.web.visitor.BaseVisitor;
-import com.tuned.tunedesc.web.visitor.Visitable;
+
+import com.tuned.tunedesc.common.visitor.BaseVisitor;
+import com.tuned.tunedesc.common.visitor.Visitable;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;

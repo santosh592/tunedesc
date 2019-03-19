@@ -1,20 +1,23 @@
 package com.tuned.tunedesc.web.helper;
 
+import com.tuned.tunedesc.common.entity.Role;
+import com.tuned.tunedesc.common.entity.User;
+import com.tuned.tunedesc.common.helper.ModelDtoHelper;
 import com.tuned.tunedesc.web.dto.RoleDto;
 import com.tuned.tunedesc.web.dto.UserDto;
-import com.tuned.tunedesc.web.entity.Role;
-import com.tuned.tunedesc.web.entity.User;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserHelper {
+@Component
+public class UserHelper implements ModelDtoHelper<UserDto, User> {
 
     final static Logger log = Logger.getLogger(UserHelper.class);
+    private RoleHelper roleHelper = new RoleHelper();
 
-
-    public static UserDto buildDto(User user) {
+    public UserDto buildDto(User user) {
 
         UserDto userDto;
         if (user != null) {
@@ -34,9 +37,9 @@ public class UserHelper {
             userDto.setEnabled(user.isEnabled());
             List<RoleDto> roleDtos = new ArrayList<>();
 
-            user.getRole().forEach(role -> {
+            user.getRole().forEach((Role role) -> {
 
-                roleDtos.add(RoleHelper.buildDto(role));
+                roleDtos.add(roleHelper.buildDto(role));
 
             });
 
@@ -49,7 +52,7 @@ public class UserHelper {
     }
 
 
-    public static User buildEntity(UserDto userDto) {
+    public User buildEntity(UserDto userDto) {
 
         User user;
         if (userDto != null) {
@@ -65,12 +68,10 @@ public class UserHelper {
             user.setPassword(userDto.getPassword());
             user.setPhonenumber(userDto.getPhonenumber());
             user.setEnabled(userDto.isEnabled());
-            Role role = new Role();
-
 
             List<Role> roles = new ArrayList<>();
             userDto.getRoleDtos().forEach(roleDto -> {
-                roles.add(RoleHelper.buildEntity(roleDto));
+                roles.add(roleHelper.buildEntity(roleDto));
             });
 
             user.setRole(roles);
