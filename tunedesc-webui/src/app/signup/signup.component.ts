@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
-import { SignUpService } from '../service/signup.service';
-import { User } from '../model/User'
-import { Role } from '../model/Role'
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import{Component, Input}from '@angular/core';
+import {Router}from '@angular/router';
+import {SignUpService}from '../service/signup.service';
+import {User}from '../model/User'
+import {Role}from '../model/Role'
+import {FormGroup, FormBuilder, Validators}from '@angular/forms';
 
 
 @Component({

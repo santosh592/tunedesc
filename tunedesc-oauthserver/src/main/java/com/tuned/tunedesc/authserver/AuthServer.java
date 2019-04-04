@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Collections;
 
-@ComponentScan (basePackages = "com.tuned.tunedesc.web.repository")
+@ComponentScan (basePackages = "com.tuned.tunedesc")
 @SpringBootApplication
 public class AuthServer {
 
@@ -14,8 +14,8 @@ public class AuthServer {
 
         SpringApplication app = new SpringApplication(AuthServer.class);
         app.setDefaultProperties(Collections
-                .singletonMap("server.port", "8083"));
+                .singletonMap("server.port", "8090"));
         app.run(args);
-    }
 
+    }
 }

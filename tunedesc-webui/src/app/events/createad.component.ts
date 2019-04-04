@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AdPost } from '../model/AdPost';
-import { CreateAdService } from '../service/createad.service';
+import{Component, Input, OnInit}from '@angular/core';
+import {Router}from '@angular/router';
+import {FormGroup, FormBuilder, Validators}from '@angular/forms';
+import {AdPost}from '../model/AdPost';
+import { CreateAdService}from '../service/createad.service';
 
 
 

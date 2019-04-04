@@ -15,32 +15,37 @@
 
                             <div class="form-group">
                                 <label for="lg_company" class="sr-only">Company name</label>
-                                <input [(ngModel)]="company" type="text" class="form-control" id="lg_company" name="lg_company" placeholder="company" size="50">
+                                <input [(ngModel)]="company" type="text" class="form-control" id="lg_company"
+                                       name="lg_company" placeholder="company" size="50">
                             </div>
                             <div class="form-group">
                                 <label for="lg_businessType" class="sr-only">Type of Business</label>
-                                <select id="type" class="selectpicker form-control" data-live-search="true" title="Please select Business type.." [(ngModel)]="businessType"
-                                    (ngModelChange)="getbusinessCat()" name="businessType">
+                                <select id="type" class="selectpicker form-control" data-live-search="true"
+                                        title="Please select Business type.." [(ngModel)]="businessType"
+                                        (ngModelChange)="getbusinessCat()" name="businessType">
                                     <option>Please select one</option>
-                                    <option *ngFor="let content of businessTypelist.listOfobjects; let i = index">{{content.type}}</option>
-
+                                    <option *ngFor="let content of businessTypelist.listOfobjects; let i = index">
+                                        {{content.type}}
+                                    </option>
 
 
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="lg_aboutcompany" class="sr-only">About company</label>
-                                <input [(ngModel)]="aboutcompany" type="aboutcompany" class="form-control" id="lg_aboutcompany" name="lg_aboutcompany" placeholder="aboutcompany">
+                                <input [(ngModel)]="aboutcompany" type="aboutcompany" class="form-control"
+                                       id="lg_aboutcompany" name="lg_aboutcompany" placeholder="aboutcompany">
                             </div>
                             <div class="form-group">
                                 <label for="lg_addescription" class="sr-only">Ad Description</label>
-                                <textarea [(ngModel)]="addescription" type="addescription" class="form-control" id="lg_addescription" name="lg_addescription"
-                                    placeholder="addescription" rows="10"></textarea>
+                                <textarea [(ngModel)]="addescription" type="addescription" class="form-control"
+                                          id="lg_addescription" name="lg_addescription"
+                                          placeholder="addescription" rows="10"></textarea>
                             </div>
                             <div class="form-group date" id='datetimepicker1'>
                                 <label for="lg_adExpirationDate" class="sr-only">ad ExpirationDate</label>
                                 <input type="text" id="datepicker">
-    
+
                             </div>
 
                         </div>

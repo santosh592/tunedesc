@@ -26,12 +26,16 @@ var HttpService = (function () {
         var token = "?access_token=" + usertoken;
         var options1 = new http_1.RequestOptions({ headers: myHeaders });
         var jsonbody = JSON.stringify(body);
-        return this.http.post(this.url + ':' + port + restEndPoint + token, jsonbody, options1).map(function (res) { return res.json(); })
-            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
+        if (typeof usertoken) {
+            return this.http.post(this.url + ':' + port + restEndPoint, jsonbody, options1).map(function (res) { return res.json(); })
+                .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
+        }
+        else
+            return this.http.post(this.url + ':' + port + restEndPoint + token, jsonbody, options1).map(function (res) { return res.json(); })
+                .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     HttpService.prototype.httpGet = function (restEndPoint, port, usertoken) {
         var myHeaders = new http_1.Headers();
-        myHeaders.append('Content-Type', 'application/json');
         var token = "?access_token=" + usertoken;
         var options1 = new http_1.RequestOptions({ headers: myHeaders });
         console.log(this.url + ':' + port + restEndPoint + token);

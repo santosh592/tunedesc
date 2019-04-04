@@ -17,7 +17,7 @@ var ActivateService = (function () {
     }
     ActivateService.prototype.activate = function (id) {
         console.log(id);
-        return this.httpservice.httpGet('/user/activate/' + id, '8080', null);
+        return this.httpservice.httpGet('/user/activate/' + id, '8080', '');
     };
     return ActivateService;
 }());

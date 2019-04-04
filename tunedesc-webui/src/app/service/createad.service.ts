@@ -1,15 +1,14 @@
-
-import { HttpService } from './http.service';
-import { Injectable, Inject } from '@angular/core';
-import { AdPost } from '../model/AdPost';
-import { Observable } from 'rxjs/Rx';
+import{HttpService}from'./http.service';
+import { Injectable, Inject}from '@angular/core';
+import {AdPost}from '../model/AdPost';
+import { Observable}from 'rxjs/Rx';
 
 
 
 @Injectable()
 export class CreateAdService {
 
-    getbusinessCat(): Observable<any> {
+getbusinessCat(): Observable<any> {
         this.token = localStorage.getItem('token')
         return this.httpservice.httpGet('/post/businessType','8080',this.token);
     }

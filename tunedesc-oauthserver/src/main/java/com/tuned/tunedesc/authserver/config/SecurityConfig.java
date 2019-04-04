@@ -3,8 +3,10 @@ package com.tuned.tunedesc.authserver.config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.access.expression.method.MethodSecurityExpressionHandler;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -18,9 +20,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 @Configuration
-// @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
+//@Order ( SecurityProperties.ACCESS_OVERRIDE_ORDER)
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final Logger log = LoggerFactory
@@ -29,9 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private MongoUserDetailsService userDetailsService;
 
 
-    /*
-     * @Autowired private ResourceServerconfig ressourceServerConfig;
-     */
+
     @Autowired
     private OAuth2Configuration authorizationServerConfiguration;
 
@@ -70,12 +73,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic();
         http.sessionManagement().sessionCreationPolicy(
                 SessionCreationPolicy.STATELESS);
-
-        http.authorizeRequests().and().formLogin()
+        http.csrf().disable();
+        http.authorizeRequests().antMatchers("/oauth/token").permitAll()
+        .antMatchers("/oauth/check_token").permitAll()
+                .and().formLogin()
                 .usernameParameter("username").permitAll().and().logout()
                 .logoutSuccessUrl("/").permitAll();
 
-        http.csrf().disable();
+
 
     }
 
@@ -90,6 +95,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         final DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userDetailsService);
         authProvider.setPasswordEncoder(passwordEncoder());
+
         return authProvider;
     }
 
@@ -97,6 +103,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
 
 
     @EnableGlobalMethodSecurity(prePostEnabled = true, jsr250Enabled = true, proxyTargetClass = true)

@@ -1,6 +1,4 @@
-export class Auth{
-
-
+export class Auth {
     constructor(public grant_type:string,
         public username:string,
         public password:string,

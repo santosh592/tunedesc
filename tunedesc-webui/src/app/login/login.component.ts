@@ -1,8 +1,7 @@
-
-import { Router } from '@angular/router';
-import { AutheticationService } from '../service/authentication.service'
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, Input } from '@angular/core';
+import{Router}from'@angular/router';
+import {AutheticationService }from '../service/authentication.service'
+import {FormGroup, FormBuilder, Validators }from '@angular/forms';
+import {Component, Input}from '@angular/core';
 import 'rxjs/add/operator/catch';
 
 @Component({

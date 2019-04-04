@@ -6,9 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import com.tuned.tunedesc.web.entity.Role;
+import com.tuned.tunedesc.common.entity.Role;
 import com.tuned.tunedesc.web.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -16,6 +17,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class MongoUserDetailsService implements UserDetailsService {
@@ -34,7 +36,7 @@ public class MongoUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException {
 
-        com.tuned.tunedesc.web.entity.User user = userRepository.findByname(username);
+        com.tuned.tunedesc.common.entity.User user = userRepository.findByname(username);
 
         if (user.isEnabled()) {
 
@@ -65,7 +67,6 @@ public class MongoUserDetailsService implements UserDetailsService {
 
         return null ;
     }
-
 
 }
 

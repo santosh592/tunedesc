@@ -1,15 +1,14 @@
-
-import { Injectable, Inject } from '@angular/core';
-import { HttpService } from './http.service';
-import { Observable } from 'rxjs/Rx';
+import{Injectable, Inject}from '@angular/core';
+import {HttpService}from './http.service';
+import {Observable}from 'rxjs/Rx';
 
 @Injectable()
 export class AutheticationService {
-    userdetails={};
-     endpoint = "/oauth/token"
+userdetails = {};
+endpoint = "/oauth/token"
 
 
-    constructor(private httpService: HttpService) {
+constructor(private httpService: HttpService) {
 
     }
 

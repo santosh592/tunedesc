@@ -1,34 +1,40 @@
 package com.tuned.tunedesc.authserver;
 
+import com.tuned.tunedesc.authserver.config.MongoUserDetailsService;
+import com.tuned.tunedesc.authserver.config.OAuth2Configuration;
+import javafx.application.Application;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import java.util.Arrays;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest
-        extends TestCase {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest(String testName) {
-        super(testName);
+@SpringBootApplication
+public class AppTest  implements CommandLineRunner {
+    @Autowired
+    private ApplicationContext appContext;
+
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(AuthServer.class, args);
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite() {
-        return new TestSuite(AppTest.class);
-    }
+    @Override
+    public void run(String... args) throws Exception {
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp() {
-        assertTrue(true);
+        String[] beans = appContext.getBeanDefinitionNames();
+        Arrays.sort(beans);
+        for (String bean : beans) {
+            System.out.println(bean);
+        }
+System.out.println("oauth bean"+appContext.getBean(MongoUserDetailsService.class));
     }
 }
+

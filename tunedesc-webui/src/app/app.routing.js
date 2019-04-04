@@ -65,7 +65,8 @@ var appRoutes = [
         component: activate_component_1.ActivateComponent
     },
     // otherwise redirect to app
-    { path: '**', redirectTo: '' }
+    { path: '**', redirectTo: ''
+    }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
 //# sourceMappingURL=app.routing.js.map

@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
-var forms_1 = require("@angular/forms"); // <-- NgModel lives here
+var forms_1 = require("@angular/forms"); // < -- NgModel lives here
 var http_1 = require("@angular/http");
 //import { InMemoryDataService }  from './in-memory-data.service';
 var app_component_1 = require("./app.component");

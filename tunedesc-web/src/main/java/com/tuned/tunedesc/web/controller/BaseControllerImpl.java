@@ -6,10 +6,7 @@ import com.tuned.tunedesc.web.exception.SequenceException;
 import com.tuned.tunedesc.web.service.BaseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -23,7 +20,7 @@ public abstract class BaseControllerImpl<T> implements BaseController<T> {
         this.baseService = baseService;
     }
 
-
+    @CrossOrigin("http://localhost:8090")
     @RequestMapping(value = "/saveDocument", method = RequestMethod.POST)
     public @ResponseBody
     ResponseEntity<T> saveDocument(@Valid @RequestBody T e) throws SequenceException {

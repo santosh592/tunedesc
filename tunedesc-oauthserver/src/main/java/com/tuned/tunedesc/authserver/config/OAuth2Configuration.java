@@ -3,6 +3,7 @@ package com.tuned.tunedesc.authserver.config;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -32,13 +33,14 @@ public class OAuth2Configuration extends
         AuthorizationServerConfigurerAdapter {
 
     @Autowired
+    @Qualifier ("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
 
     @Autowired
     private MongoUserDetailsService userDetailService;
 
-    @Autowired
-    private BarhaClientConfig barhaClientConfig;
+  /*  @Autowired
+    private BarhaClientConfig barhaClientConfig;*/
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security)
@@ -53,12 +55,6 @@ public class OAuth2Configuration extends
     @Override
     public void configure(ClientDetailsServiceConfigurer clients)
             throws Exception {
-
-        String[] grantTypes = new String[barhaClientConfig.getGrantTypes()
-                .size()];
-        String[] authorities = new String[barhaClientConfig
-                .getAuthorities().size()];
-        String[] scopes = new String[barhaClientConfig.getScope().size()];
 
         clients.inMemory().withClient("tunedesc")
                 .scopes("read", "write").authorities("USER", "ADMIN")
@@ -113,7 +109,7 @@ public class OAuth2Configuration extends
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://localhost:3000");
+        config.addAllowedOrigin("*");
         config.addAllowedHeader("*");
         config.addAllowedMethod("OPTIONS");
         config.addAllowedMethod("GET");
@@ -124,6 +120,7 @@ public class OAuth2Configuration extends
         return new CorsFilter(source);
 
     }
+
 
 
 }

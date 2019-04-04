@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import {NgForm} from '@angular/forms';
+import{Component}from'@angular/core';
+import {Router }from '@angular/router';
+import {NgForm}from '@angular/forms';
 
 
 

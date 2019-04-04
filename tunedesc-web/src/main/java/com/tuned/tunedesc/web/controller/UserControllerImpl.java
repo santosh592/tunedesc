@@ -11,8 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin
+
 @RestController
+@CrossOrigin(maxAge = 3600)
 @RequestMapping(value = "/user")
 
 

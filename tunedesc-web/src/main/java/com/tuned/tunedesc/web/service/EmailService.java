@@ -9,7 +9,7 @@ public class EmailService {
 
     public void sendEmail(String email,String activeteLink) {
 
-        final String username = "santosh.wa296@@gmail.com";
+        final String username = "santosh.wa296@gmail.com";
         final String password = "09K41a0592@";
 
         Properties props = new Properties();

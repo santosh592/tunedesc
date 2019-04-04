@@ -13,7 +13,7 @@ export class ActivateService {
 
     activate(id: Number): Observable<any>{
         console.log(id);
-       return this.httpservice.httpGet('/user/activate/'+ id, '8080',null)
+       return this.httpservice.httpGet('/user/activate/'+ id, '8080','')
         }
 
 }

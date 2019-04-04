@@ -4,5 +4,6 @@ dependencies {
     compile project(':tunedesc-web')
 
     compile project(':tunedesc-configurations')
+    compile project(':tunedesc-common')
 }
 
