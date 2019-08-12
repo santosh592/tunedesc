@@ -11,17 +11,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var createad_service_1 = require("../service/createad.service");
 var NavigateComponent = (function () {
-    function NavigateComponent(router) {
+    //@Input()
+    //private creatAdService: CreateAdService
+    function NavigateComponent(router, creatAdService) {
         this.router = router;
+        this.creatAdService = creatAdService;
+        this.postTypeList = {};
         this.login = true;
     }
+    NavigateComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.creatAdService.getPostTypeList().subscribe(function (data) {
+            _this.postTypeList = data;
+            console.log(data);
+            console.log(_this.postTypeList);
+        });
+        //throw new Error("Method not implemented.");
+    };
     NavigateComponent.prototype.goToLogin = function () {
         //this.router.navigate(['/login']);
         this.router.navigate(['/login']);
     };
     NavigateComponent.prototype.goToSignUp = function () {
         this.router.navigate(['/signup']);
+    };
+    NavigateComponent.prototype.goToDashboard = function () {
+        this.router.navigate(['/dashboard']);
     };
     return NavigateComponent;
 }());
@@ -31,7 +48,7 @@ NavigateComponent = __decorate([
         selector: 'navigate',
         templateUrl: 'navigate.component.html',
     }),
-    __metadata("design:paramtypes", [router_1.Router])
+    __metadata("design:paramtypes", [router_1.Router, createad_service_1.CreateAdService])
 ], NavigateComponent);
 exports.NavigateComponent = NavigateComponent;
 //# sourceMappingURL=navigate.component.js.map

@@ -45,6 +45,11 @@ export class HttpService {
         var token = "?access_token=" + usertoken
         let options1 = new RequestOptions({ headers: myHeaders });
         console.log(this.url + ':' + port + restEndPoint + token);
+
+        if (typeof usertoken) {
+            return this.http.get(this.url + ':' + port + restEndPoint, options1).map((res: Response) => res.json())
+                .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+        } else
         return this.http.get(this.url + ':' + port + restEndPoint + token, options1).map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 

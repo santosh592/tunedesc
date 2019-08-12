@@ -31,6 +31,7 @@
 
 <nav class="navbar navbar-default navbar-fixed-bottom topnav" role="navigation">
 
-  <h4>  <span class="label label-primary">Primary Label</span></h4>
-    
+  <!-- <h4>  <span class="label label-primary input-group-addon"><i (click)=goToCatogory()>Catalog</i></span></h4> -->
+  <h6 *ngFor="let content of postTypeList.listOfobjects; let i = index" class="btn btn-link"  ><a (click)="goToDashboard()"> {{content.type}}</a></h6>
+  
 </nav>

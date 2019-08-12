@@ -26,6 +26,7 @@ public class ResourceManagerConfig extends ResourceServerConfigurerAdapter
         http
                 .antMatcher("/**")
                 .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/post/content-type").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/requestdetails/view-all-details/**").permitAll()
                 .antMatchers("/api/**").authenticated();
 

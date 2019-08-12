@@ -39,8 +39,13 @@ var HttpService = (function () {
         var token = "?access_token=" + usertoken;
         var options1 = new http_1.RequestOptions({ headers: myHeaders });
         console.log(this.url + ':' + port + restEndPoint + token);
-        return this.http.get(this.url + ':' + port + restEndPoint + token, options1).map(function (res) { return res.json(); })
-            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
+        if (typeof usertoken) {
+            return this.http.get(this.url + ':' + port + restEndPoint, options1).map(function (res) { return res.json(); })
+                .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
+        }
+        else
+            return this.http.get(this.url + ':' + port + restEndPoint + token, options1).map(function (res) { return res.json(); })
+                .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     HttpService.prototype.httpAuthPost = function (username, password, restEndPoint, port) {
         var myheader = new http_1.Headers();

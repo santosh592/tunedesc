@@ -24,8 +24,8 @@ var CreateAdService = (function () {
         return this.httpservice.httpPost(adPost, '/post/saveDocument', '8080', this.token);
     };
     CreateAdService.prototype.getPostTypeList = function () {
-        this.token = localStorage.getItem('token');
-        return this.httpservice.httpGet('/post/postType', '8080', this.token);
+        //  this.token = localStorage.getItem('token')
+        return this.httpservice.httpGet('/post/content-type', '8080', null);
     };
     return CreateAdService;
 }());

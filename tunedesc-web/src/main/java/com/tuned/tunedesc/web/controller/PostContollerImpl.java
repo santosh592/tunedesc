@@ -30,9 +30,9 @@ public class PostContollerImpl extends BaseControllerImpl<PostDto> implements Po
 
     }
 
-    @RequestMapping(value = "/postType", method = RequestMethod.GET)
+    @RequestMapping(value = "/content-type", method = RequestMethod.GET)
     public @ResponseBody
-    ResponseEntity<ResponseDto<CatogoryDto>> findAllPostType() throws SequenceException {
+    ResponseEntity<ResponseDto<CatogoryDto>> findAllContentType() throws SequenceException {
        List<CatogoryDto> postTypeDtos= postService.getTypeOfPostList();
         ResponseDto responseDto = null;
         if (postTypeDtos != null) {

@@ -24,8 +24,8 @@ getbusinessCat(): Observable<any> {
 
 
     getPostTypeList(): Observable<any>{
-        this.token = localStorage.getItem('token')
-        return this.httpservice.httpGet('/post/postType','8080',this.token);
+      //  this.token = localStorage.getItem('token')
+        return this.httpservice.httpGet('/post/content-type','8080',null);
 
 
     }

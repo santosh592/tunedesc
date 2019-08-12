@@ -3,10 +3,8 @@ package com.tuned.tunedesc.authserver.config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.access.expression.method.MethodSecurityExpressionHandler;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -20,9 +18,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
 
 @Configuration
 //@Order ( SecurityProperties.ACCESS_OVERRIDE_ORDER)
@@ -32,7 +27,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .getLogger(SecurityConfig.class);
     @Autowired
     private MongoUserDetailsService userDetailsService;
-
 
 
     @Autowired
@@ -58,7 +52,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity wSecurity) throws Exception {
-        wSecurity.ignoring().antMatchers("/user/saveDocument");
+        wSecurity.ignoring().antMatchers("/user/saveDocument")
+                .antMatchers("/post/content-type");
     }
 
     @Override
@@ -75,11 +70,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 SessionCreationPolicy.STATELESS);
         http.csrf().disable();
         http.authorizeRequests().antMatchers("/oauth/token").permitAll()
-        .antMatchers("/oauth/check_token").permitAll()
+                .antMatchers("/oauth/check_token").permitAll()
                 .and().formLogin()
                 .usernameParameter("username").permitAll().and().logout()
                 .logoutSuccessUrl("/").permitAll();
-
 
 
     }
@@ -105,8 +99,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
-
-    @EnableGlobalMethodSecurity(prePostEnabled = true, jsr250Enabled = true, proxyTargetClass = true)
+    @EnableGlobalMethodSecurity ( prePostEnabled = true, jsr250Enabled = true, proxyTargetClass = true )
     public static class GlobalSecurityConfiguration extends
             GlobalMethodSecurityConfiguration {
 
