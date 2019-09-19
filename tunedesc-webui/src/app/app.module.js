@@ -10,6 +10,8 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms"); // < -- NgModel lives here
 var http_1 = require("@angular/http");
+// Imports for loading & configuring the in-memory web api
+//import { InMemoryWebApiModule}from 'angular-';
 //import { InMemoryDataService }  from './in-memory-data.service';
 var app_component_1 = require("./app.component");
 var app_routing_1 = require("./app.routing");
@@ -18,18 +20,16 @@ var dashboard_component_1 = require("./dashboard/dashboard.component");
 var signup_component_1 = require("./signup/signup.component");
 var navigate_component_1 = require("./navigate/navigate.component");
 var http_service_1 = require("./service/http.service");
-//import { AutheticationService } from './service/authentication.service';
 var signup_service_1 = require("./service/signup.service");
 var login_component_1 = require("./login/login.component");
 var forgetpwd_component_1 = require("./login/forgetpwd.component");
-var createpost_component_1 = require("./events/createpost.component");
-var createad_component_1 = require("./events/createad.component");
-var createArticle_component_1 = require("./events/createArticle.component");
-var createEvent_component_1 = require("./events/createEvent.component");
+var createpost_component_1 = require("./post/createpost.component");
+var contentpublishpanel_component_1 = require("./post/contentpublishpanel.component");
 var activate_component_1 = require("./activate/activate.component");
 var activate_service_1 = require("./service/activate.service");
 var authentication_service_1 = require("./service/authentication.service");
-var createad_service_1 = require("./service/createad.service");
+var contentpublishpanel_service_1 = require("./service/contentpublishpanel.service");
+var createpost_service_1 = require("./service/createpost.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -42,7 +42,8 @@ AppModule = __decorate([
             forms_1.FormsModule,
             http_1.HttpModule,
             //InMemoryWebApiModule.forRoot(InMemoryDataService),
-            app_routing_1.routing // <-- import the FormsModule before binding with [(ngModel)]
+            app_routing_1.routing
+            // <-- import the FormsModule before binding with [(ngModel)]
         ],
         declarations: [
             app_component_1.AppComponent,
@@ -54,11 +55,9 @@ AppModule = __decorate([
             forgetpwd_component_1.ForgetPwdComponent,
             createpost_component_1.PostCreateComponent,
             activate_component_1.ActivateComponent,
-            createad_component_1.AdCreateComponent,
-            createArticle_component_1.ArticleCreateComponent,
-            createEvent_component_1.CreateEventComponent
+            contentpublishpanel_component_1.ContentPublishPanel
         ],
-        providers: [http_service_1.HttpService, signup_service_1.SignUpService, activate_service_1.ActivateService, authentication_service_1.AutheticationService, createad_service_1.CreateAdService],
+        providers: [http_service_1.HttpService, signup_service_1.SignUpService, activate_service_1.ActivateService, authentication_service_1.AutheticationService, contentpublishpanel_service_1.ContentPublishService, createpost_service_1.CreatePostService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

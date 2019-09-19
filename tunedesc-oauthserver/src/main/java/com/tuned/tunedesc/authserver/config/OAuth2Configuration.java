@@ -33,14 +33,12 @@ public class OAuth2Configuration extends
         AuthorizationServerConfigurerAdapter {
 
     @Autowired
-    @Qualifier ("authenticationManagerBean")
+    @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
 
     @Autowired
     private MongoUserDetailsService userDetailService;
 
-  /*  @Autowired
-    private BarhaClientConfig barhaClientConfig;*/
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security)
@@ -116,11 +114,11 @@ public class OAuth2Configuration extends
         config.addAllowedMethod("POST");
         config.addAllowedMethod("PUT");
         config.addAllowedMethod("DELETE");
+        config.addAllowedOrigin("http://localhost:3000");
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
 
     }
-
 
 
 }

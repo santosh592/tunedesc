@@ -11,12 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var createad_service_1 = require("../service/createad.service");
+var contentpublishpanel_service_1 = require("../service/contentpublishpanel.service");
+var authentication_service_1 = require("../service/authentication.service");
 var PostCreateComponent = (function () {
-    function PostCreateComponent(router, createpostservice) {
+    function PostCreateComponent(router, createpostservice, authenticationService) {
         this.router = router;
         this.createpostservice = createpostservice;
+        this.authenticationService = authenticationService;
         this.postTypeList = {};
+        this.userdetails = {};
     }
     PostCreateComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -25,20 +28,18 @@ var PostCreateComponent = (function () {
             console.log(data);
             console.log(_this.postTypeList);
         });
+        this.authenticationService.getUserDetails(localStorage.getItem('token')).subscribe(function (data) {
+            _this.userdetails = data.resposeobject;
+            console.log(data);
+        });
     };
     PostCreateComponent.prototype.test = function () {
         console.log(this.contenttype);
     };
-    PostCreateComponent.prototype.goTocreatead = function () {
+    PostCreateComponent.prototype.goToCreatePost = function () {
         console.log(this.contenttype);
-        if (this.contenttype == 'ADVERTISEMENT') {
-            localStorage.setItem('advert', 'ADVERTISEMENT');
-            this.router.navigate(['/createad']);
-        }
-        else if (this.contenttype == 'EVENT')
-            this.router.navigate(['/eventcreate']);
-        else if (this.contenttype == 'ARTICLE')
-            this.router.navigate(['/articlecreate']);
+        localStorage.setItem('posttype', this.contenttype);
+        this.router.navigate(['/contentpublish']);
     };
     return PostCreateComponent;
 }());
@@ -52,7 +53,8 @@ PostCreateComponent = __decorate([
         selector: 'createpost',
         templateUrl: 'createpost.component.html',
     }),
-    __metadata("design:paramtypes", [router_1.Router, createad_service_1.CreateAdService])
+    __metadata("design:paramtypes", [router_1.Router, contentpublishpanel_service_1.ContentPublishService,
+        authentication_service_1.AutheticationService])
 ], PostCreateComponent);
 exports.PostCreateComponent = PostCreateComponent;
 //# sourceMappingURL=createpost.component.js.map

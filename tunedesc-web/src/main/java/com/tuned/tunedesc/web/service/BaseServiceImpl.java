@@ -8,9 +8,9 @@ import com.tuned.tunedesc.web.dto.ResponseDto;
 import com.tuned.tunedesc.web.dto.UserDto;
 import com.tuned.tunedesc.web.exception.SequenceException;
 import com.tuned.tunedesc.web.helper.UserHelper;
-import com.tuned.tunedesc.web.repository.BaseRepository;
+import com.tuned.tunedesc.common.repository.BaseRepository;
 import com.tuned.tunedesc.web.repository.SequenceIdRepository;
-import com.tuned.tunedesc.web.repository.UserRepository;
+import com.tuned.tunedesc.common.repository.UserRepository;
 
 import java.io.Serializable;
 import java.sql.Timestamp;

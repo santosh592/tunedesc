@@ -8,14 +8,12 @@ var signup_component_1 = require("./signup/signup.component");
 var navigate_component_1 = require("./navigate/navigate.component");
 var login_component_1 = require("./login/login.component");
 var forgetpwd_component_1 = require("./login/forgetpwd.component");
-var createpost_component_1 = require("./events/createpost.component");
-var createad_component_1 = require("./events/createad.component");
-var createArticle_component_1 = require("./events/createArticle.component");
-var createEvent_component_1 = require("./events/createEvent.component");
+var createpost_component_1 = require("./post/createpost.component");
+var contentpublishpanel_component_1 = require("./post/contentpublishpanel.component");
 var activate_component_1 = require("./activate/activate.component");
 var appRoutes = [
     {
-        path: '', component: app_component_1.AppComponent,
+        path: 'app', component: app_component_1.AppComponent,
         children: [
             {
                 path: '',
@@ -29,6 +27,7 @@ var appRoutes = [
             },
         ]
     },
+    { path: '', redirectTo: '/app', pathMatch: 'full' },
     {
         path: 'login',
         component: login_component_1.LoginComponent
@@ -49,16 +48,8 @@ var appRoutes = [
         component: createpost_component_1.PostCreateComponent
     },
     {
-        path: 'createad',
-        component: createad_component_1.AdCreateComponent
-    },
-    {
-        path: 'eventcreate',
-        component: createEvent_component_1.CreateEventComponent
-    },
-    {
-        path: 'articlecreate',
-        component: createArticle_component_1.ArticleCreateComponent
+        path: 'contentpublish',
+        component: contentpublishpanel_component_1.ContentPublishPanel
     },
     {
         path: 'activateaccount/:id',
@@ -69,4 +60,5 @@ var appRoutes = [
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
+router_1.RouterModule.forChild(appRoutes);
 //# sourceMappingURL=app.routing.js.map

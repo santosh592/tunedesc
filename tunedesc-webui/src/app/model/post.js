@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var AdPost = (function () {
-    function AdPost(companyName, businessCategory, aboutcompany, description, postType, userId) {
+var Post = (function () {
+    function Post(companyName, businessCategory, aboutcompany, description, postType, userId) {
         this.companyName = companyName;
         this.aboutcompany = aboutcompany;
         this.description = description;
@@ -9,7 +9,7 @@ var AdPost = (function () {
         this.postType = postType;
         this.userId = userId;
     }
-    return AdPost;
+    return Post;
 }());
-exports.AdPost = AdPost;
-//# sourceMappingURL=AdPost.js.map
+exports.Post = Post;
+//# sourceMappingURL=Post.js.map

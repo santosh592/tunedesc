@@ -11,24 +11,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var createad_service_1 = require("../service/createad.service");
+var createpost_service_1 = require("../service/createpost.service");
+var authentication_service_1 = require("../service/authentication.service");
 var NavigateComponent = (function () {
     //@Input()
     //private creatAdService: CreateAdService
-    function NavigateComponent(router, creatAdService) {
+    function NavigateComponent(router, createpostservice, authenticationService) {
         this.router = router;
-        this.creatAdService = creatAdService;
+        this.createpostservice = createpostservice;
+        this.authenticationService = authenticationService;
         this.postTypeList = {};
+        this.userdetails = {};
         this.login = true;
     }
     NavigateComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.creatAdService.getPostTypeList().subscribe(function (data) {
+        this.createpostservice.getPostTypeList().subscribe(function (data) {
             _this.postTypeList = data;
             console.log(data);
             console.log(_this.postTypeList);
+            //throw new Error("Method not implemented.");
         });
-        //throw new Error("Method not implemented.");
+        this.authenticationService.getUserDetails(localStorage.getItem('token')).subscribe(function (data) {
+            _this.userdetails = data.resposeobject;
+            console.log(data);
+        });
+    };
+    NavigateComponent.prototype.goToHome = function () {
+        this.router.navigate(['/home']);
+    };
+    NavigateComponent.prototype.goToStartup = function () {
+        this.router.navigate(['/startup']);
+    };
+    NavigateComponent.prototype.goToBusiness = function () {
+        this.router.navigate(['/business']);
+    };
+    NavigateComponent.prototype.goToTech = function () {
+        this.router.navigate(['/tech']);
+    };
+    NavigateComponent.prototype.goToScience = function () {
+        this.router.navigate(['/science']);
     };
     NavigateComponent.prototype.goToLogin = function () {
         //this.router.navigate(['/login']);
@@ -40,6 +62,9 @@ var NavigateComponent = (function () {
     NavigateComponent.prototype.goToDashboard = function () {
         this.router.navigate(['/dashboard']);
     };
+    NavigateComponent.prototype.goToCreateEvents = function () {
+        this.router.navigate(['/createpost']);
+    };
     return NavigateComponent;
 }());
 NavigateComponent = __decorate([
@@ -48,7 +73,7 @@ NavigateComponent = __decorate([
         selector: 'navigate',
         templateUrl: 'navigate.component.html',
     }),
-    __metadata("design:paramtypes", [router_1.Router, createad_service_1.CreateAdService])
+    __metadata("design:paramtypes", [router_1.Router, createpost_service_1.CreatePostService, authentication_service_1.AutheticationService])
 ], NavigateComponent);
 exports.NavigateComponent = NavigateComponent;
 //# sourceMappingURL=navigate.component.js.map

@@ -16,7 +16,7 @@ var HomeComponent = (function () {
         this.router = router;
     }
     HomeComponent.prototype.goToDashboard = function () {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/']);
     };
     return HomeComponent;
 }());

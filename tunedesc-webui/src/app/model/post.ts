@@ -1,4 +1,4 @@
-export class AdPost {
+export class Post {
 private companyName:string;
 
 private businessCategory: string;

@@ -1,7 +1,8 @@
 import{Component, Input, OnInit}from '@angular/core';
 import {Router}from '@angular/router';
 import {FormGroup, FormBuilder, Validators}from '@angular/forms';
-import {CreateAdService}from '../service/createad.service';
+import { ContentPublishService } from '../service/contentpublishpanel.service';
+import {AutheticationService }from '../service/authentication.service'
 
 
 
@@ -19,11 +20,13 @@ export class PostCreateComponent implements OnInit {
 
 
     postTypeList = {};
+    userdetails = {};
 
     @Input()
     
     contenttype: string;
-    constructor(private router: Router, private createpostservice: CreateAdService) {
+    constructor(private router: Router, private createpostservice: ContentPublishService,
+        private authenticationService: AutheticationService) {
 
     }
 
@@ -35,6 +38,11 @@ export class PostCreateComponent implements OnInit {
 
 
         });
+        this.authenticationService.getUserDetails(localStorage.getItem('token')).subscribe((data: any) => {
+            this.userdetails = data.resposeobject;
+            console.log(data);
+
+        });
     }
 
 
@@ -44,19 +52,13 @@ export class PostCreateComponent implements OnInit {
         console.log(this.contenttype);
     }
 
-    goTocreatead() {
+    goToCreatePost() {
         console.log(this.contenttype);
-        if (this.contenttype == 'ADVERTISEMENT') {
-            localStorage.setItem('advert', 'ADVERTISEMENT')
-            this.router.navigate(['/createad'])
+        localStorage.setItem('posttype', this.contenttype)
+        this.router.navigate(['/contentpublish'])
         }
-        else
-            if (this.contenttype == 'EVENT')
-                this.router.navigate(['/eventcreate'])
-            else if (this.contenttype == 'ARTICLE')
-                this.router.navigate(['/articlecreate'])
 
     }
-}
+
 
 

@@ -1,12 +1,12 @@
 import{HttpService}from'./http.service';
 import { Injectable, Inject}from '@angular/core';
-import {AdPost}from '../model/AdPost';
+import {Post}from '../model/Post';
 import { Observable}from 'rxjs/Rx';
 
 
 
 @Injectable()
-export class CreateAdService {
+export class ContentPublishService {
 
 getbusinessCat(): Observable<any> {
         this.token = localStorage.getItem('token')
@@ -16,7 +16,7 @@ getbusinessCat(): Observable<any> {
     constructor(private httpservice: HttpService) {
     }
 
-    createAd(adPost: AdPost): Observable<any> {
+    createAd(adPost: Post): Observable<any> {
         this.token = localStorage.getItem('token')
         return this.httpservice.httpPost(adPost, '/post/saveDocument', '8080', this.token);
     }
@@ -24,8 +24,8 @@ getbusinessCat(): Observable<any> {
 
 
     getPostTypeList(): Observable<any>{
-      //  this.token = localStorage.getItem('token')
-        return this.httpservice.httpGet('/post/content-type','8080',null);
+        this.token = localStorage.getItem('token')
+        return this.httpservice.httpGet('/post/content-type','8080',this.token);
 
 
     }

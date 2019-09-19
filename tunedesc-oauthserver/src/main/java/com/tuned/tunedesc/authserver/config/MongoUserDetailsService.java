@@ -7,9 +7,8 @@ import java.util.List;
 
 
 import com.tuned.tunedesc.common.entity.Role;
-import com.tuned.tunedesc.web.repository.UserRepository;
+import com.tuned.tunedesc.common.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -45,10 +44,10 @@ public class MongoUserDetailsService implements UserDetailsService {
                     user.isCredentialsNonExpired(), user.isAccountNonLocked(),
                     getAuthorities(user.getRole()));
         } else {
-
+            System.out.println("user is not active,please active your account ");
         }
 
-        return null;
+        throw new UsernameNotFoundException(username);
     }
 
     public List<GrantedAuthority> getAuthorities(List<Role> roles) {

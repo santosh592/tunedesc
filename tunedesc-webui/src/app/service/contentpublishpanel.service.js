@@ -11,27 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var http_service_1 = require("./http.service");
 var core_1 = require("@angular/core");
-var CreateAdService = (function () {
-    function CreateAdService(httpservice) {
+var ContentPublishService = (function () {
+    function ContentPublishService(httpservice) {
         this.httpservice = httpservice;
     }
-    CreateAdService.prototype.getbusinessCat = function () {
+    ContentPublishService.prototype.getbusinessCat = function () {
         this.token = localStorage.getItem('token');
         return this.httpservice.httpGet('/post/businessType', '8080', this.token);
     };
-    CreateAdService.prototype.createAd = function (adPost) {
+    ContentPublishService.prototype.createAd = function (adPost) {
         this.token = localStorage.getItem('token');
         return this.httpservice.httpPost(adPost, '/post/saveDocument', '8080', this.token);
     };
-    CreateAdService.prototype.getPostTypeList = function () {
-        //  this.token = localStorage.getItem('token')
-        return this.httpservice.httpGet('/post/content-type', '8080', null);
+    ContentPublishService.prototype.getPostTypeList = function () {
+        this.token = localStorage.getItem('token');
+        return this.httpservice.httpGet('/post/content-type', '8080', this.token);
     };
-    return CreateAdService;
+    return ContentPublishService;
 }());
-CreateAdService = __decorate([
+ContentPublishService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_service_1.HttpService])
-], CreateAdService);
-exports.CreateAdService = CreateAdService;
-//# sourceMappingURL=createad.service.js.map
+], ContentPublishService);
+exports.ContentPublishService = ContentPublishService;
+//# sourceMappingURL=contentpublishpanel.service.js.map

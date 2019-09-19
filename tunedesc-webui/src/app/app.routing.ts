@@ -6,12 +6,8 @@ import {SignupComponent }from './signup/signup.component';
 import {NavigateComponent}from './navigate/navigate.component';
 import {LoginComponent}from './login/login.component';
 import {ForgetPwdComponent}from './login/forgetpwd.component';
-import {PostCreateComponent}from './events/createpost.component'
-import {AdCreateComponent} from './events/createad.component'
-import {ArticleCreateComponent}from './events/createArticle.component'
-import {CreateEventComponent} from './events/createEvent.component'
-
-
+import {PostCreateComponent}from './post/createpost.component'
+import {ContentPublishPanel} from './post/contentpublishpanel.component'
 import {ActivateComponent}from './activate/activate.component'
 
 
@@ -19,24 +15,27 @@ import {ActivateComponent}from './activate/activate.component'
 
 const appRoutes: Routes = [
 
-{
-path: '', component: AppComponent,
+    {
+        path: 'app', component: AppComponent,
 
-children:
-[
-{
-path: '',
-component: NavigateComponent,
-outlet: 'navigation'
-},
-{
-path: '',
-component: HomeComponent,
-outlet: 'body1'
-},
 
-]
-},
+        children:
+            [
+                {
+                    path: '',
+                    component: NavigateComponent,
+                    outlet: 'navigation'
+                },
+                {
+                    path: '',
+                    component: HomeComponent,
+                    outlet: 'body1'
+                },
+
+            ]
+    },
+    
+{ path: '', redirectTo: '/app', pathMatch: 'full' },
 {
 path: 'login',
 component: LoginComponent
@@ -61,20 +60,8 @@ component: PostCreateComponent
 },
 {
 
-path: 'createad',
-component: AdCreateComponent
-
-},
-{
-
-path: 'eventcreate',
-component: CreateEventComponent
-
-},
-{
-
-path: 'articlecreate',
-component: ArticleCreateComponent
+path: 'contentpublish',
+component: ContentPublishPanel
 
 },
 {
@@ -90,4 +77,5 @@ component: ActivateComponent
 
 
 export const routing = RouterModule.forRoot(appRoutes);
+RouterModule.forChild(appRoutes);
 

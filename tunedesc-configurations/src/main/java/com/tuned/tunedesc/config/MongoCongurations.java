@@ -17,7 +17,7 @@ import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 
     @Configuration
-    @EnableMongoRepositories(basePackages = "com.tuned.tunedesc.web.repository")
+    @EnableMongoRepositories(basePackages = "com.tuned.tunedesc")
     @Import(value = MongoAutoConfiguration.class)
     public class MongoCongurations extends AbstractMongoConfiguration {
 

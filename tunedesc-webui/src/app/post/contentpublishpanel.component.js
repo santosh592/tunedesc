@@ -12,45 +12,32 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var authentication_service_1 = require("../service/authentication.service");
-var DashboardComponent = (function () {
-    function DashboardComponent(router, authenticationService) {
+var contentpublishpanel_service_1 = require("../service/contentpublishpanel.service");
+var ContentPublishPanel = (function () {
+    function ContentPublishPanel(router, contentpublishservice, authenticationService) {
         this.router = router;
+        this.contentpublishservice = contentpublishservice;
         this.authenticationService = authenticationService;
         this.userdetails = {};
     }
-    DashboardComponent.prototype.ngOnInit = function () {
+    ContentPublishPanel.prototype.ngOnInit = function () {
         var _this = this;
         this.authenticationService.getUserDetails(localStorage.getItem('token')).subscribe(function (data) {
             _this.userdetails = data.resposeobject;
             console.log(data);
         });
+        this.contenttype = localStorage.getItem('posttype');
     };
-    DashboardComponent.prototype.goToCreateEvents = function () {
-        var username = this.userdetails["username"];
-        localStorage.setItem('userId', this.userdetails["id"]);
-        console.log(username);
-        if (username != null) {
-            this.router.navigate(['/createpost']);
-        }
-        else {
-        }
-    };
-    DashboardComponent.prototype.logout = function () {
-        localStorage.removeItem('token');
-        this.router.navigate(['/']);
-    };
-    DashboardComponent.prototype.loginpage = function () {
-        this.router.navigate(['/login']);
-    };
-    return DashboardComponent;
+    return ContentPublishPanel;
 }());
-DashboardComponent = __decorate([
+ContentPublishPanel = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'dashboard',
-        templateUrl: 'dashboard.component.html',
+        selector: 'contentpublishpanel',
+        templateUrl: 'contentpublishpanel.component.html',
     }),
-    __metadata("design:paramtypes", [router_1.Router, authentication_service_1.AutheticationService])
-], DashboardComponent);
-exports.DashboardComponent = DashboardComponent;
-//# sourceMappingURL=dashboard.component.js.map
+    __metadata("design:paramtypes", [router_1.Router, contentpublishpanel_service_1.ContentPublishService,
+        authentication_service_1.AutheticationService])
+], ContentPublishPanel);
+exports.ContentPublishPanel = ContentPublishPanel;
+//# sourceMappingURL=contentpublishpanel.component.js.map

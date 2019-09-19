@@ -33,11 +33,7 @@ export class DashboardComponent implements OnInit {
         });
     }
 
-    public events = [
-        { title: 'Jilles', catogory: 'roomates' },
-        { title: 'Todd', catogory: 'fest' },
-        { title: 'Lisa', catogory: 'parties' }
-    ];
+    
     goToCreateEvents() {
         var username=this.userdetails["username"];
 

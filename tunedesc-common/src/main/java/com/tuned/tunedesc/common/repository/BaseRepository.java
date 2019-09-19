@@ -1,4 +1,4 @@
-package com.tuned.tunedesc.web.repository;
+package com.tuned.tunedesc.common.repository;
 
 
 import org.springframework.data.mongodb.repository.MongoRepository;

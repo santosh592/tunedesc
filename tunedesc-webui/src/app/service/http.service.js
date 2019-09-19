@@ -40,7 +40,7 @@ var HttpService = (function () {
         var options1 = new http_1.RequestOptions({ headers: myHeaders });
         console.log(this.url + ':' + port + restEndPoint + token);
         if (typeof usertoken) {
-            return this.http.get(this.url + ':' + port + restEndPoint, options1).map(function (res) { return res.json(); })
+            return this.http.get(this.url + ':' + port + restEndPoint + token, options1).map(function (res) { return res.json(); })
                 .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
         }
         else

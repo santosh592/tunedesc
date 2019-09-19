@@ -1,6 +1,6 @@
 <!-- REGISTRATION FORM -->
 <div class="text-center" style="padding:70px 0">
-    <div class="logo">Hi santosh, What your creating today ad/event/Article? Please choose from below...</div>
+    <div class="logo">Hi {{userdetails.username}}, Please choose type of article you are publishing today</div>
     <!-- Main Form -->
     <div class="login-form-1">
         <form id="register-form" class="text-left">
@@ -13,7 +13,7 @@
 
                             <select id="type" class="selectpicker form-control" data-live-search="true"
                                     title="Please select Type.." [(ngModel)]="contenttype"
-                                    (ngModelChange)="goTocreatead()" name="posttype">
+                                    (ngModelChange)="goToCreatePost()" name="posttype">
                                 <option>Please select one</option>
                                 <option *ngFor="let content of postTypeList.listOfobjects; let i = index">
                                     {{content.type}}

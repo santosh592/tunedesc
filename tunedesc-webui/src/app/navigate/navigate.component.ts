@@ -3,7 +3,8 @@ import { NgForm } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CreateAdService } from '../service/createad.service';
+import { CreatePostService } from '../service/createpost.service';
+import { AutheticationService } from '../service/authentication.service';
 
 
 @Component({
@@ -17,25 +18,49 @@ import { CreateAdService } from '../service/createad.service';
 
 export class NavigateComponent implements OnInit {
     postTypeList = {};
+    userdetails = {};
     //@Input()
     //private creatAdService: CreateAdService
-    constructor(private router: Router,private creatAdService: CreateAdService) {
+    constructor(private router: Router, private createpostservice: CreatePostService, private authenticationService: AutheticationService) {
 
     }
+
     ngOnInit(): void {
 
-        this.creatAdService.getPostTypeList().subscribe((data: any) => {
+        this.createpostservice.getPostTypeList().subscribe((data: any) => {
             this.postTypeList = data;
             console.log(data);
             console.log(this.postTypeList);
+            
+            //throw new Error("Method not implemented.");
+        })
+
+        this.authenticationService.getUserDetails(localStorage.getItem('token')).subscribe((data: any) => {
+            this.userdetails = data.resposeobject;
+            console.log(data);
 
         })
-        //throw new Error("Method not implemented.");
-    }
+      }
     
     login: boolean = true;
+    activeClass: String ;
+
+   goToHome() {
+       this.router.navigate(['/home']);
+    }
+
+    goToStartup() {
+        this.router.navigate(['/startup']);
+    }
 
 
+    goToBusiness() {
+        this.router.navigate(['/business']);
+    } goToTech() {
+        this.router.navigate(['/tech']);
+    } goToScience() {
+        this.router.navigate(['/science']);
+    }
 
     goToLogin() {
         //this.router.navigate(['/login']);
@@ -51,6 +76,9 @@ export class NavigateComponent implements OnInit {
 
         this.router.navigate(['/dashboard'])
 
+    }
+    goToCreateEvents() {
+        this.router.navigate(['/createpost'])
     }
 }
 

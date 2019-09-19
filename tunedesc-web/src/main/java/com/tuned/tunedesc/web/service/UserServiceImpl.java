@@ -6,7 +6,7 @@ import com.tuned.tunedesc.web.dto.ResponseDto;
 import com.tuned.tunedesc.web.dto.UserDto;
 import com.tuned.tunedesc.web.helper.UserHelper;
 import com.tuned.tunedesc.web.repository.SequenceIdRepository;
-import com.tuned.tunedesc.web.repository.UserRepository;
+import com.tuned.tunedesc.common.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -16,7 +16,7 @@ export class HomeComponent {
     constructor(private router: Router) { }
     goToDashboard() {
 
-        this.router.navigate(['/dashboard'])
+        this.router.navigate(['/'])
 
     }
 }
