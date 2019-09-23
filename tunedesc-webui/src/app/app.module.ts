@@ -25,6 +25,9 @@ import {ActivateService}from './service/activate.service'
 import {AutheticationService} from './service/authentication.service'
 import { ContentPublishService } from './service/contentpublishpanel.service';
 import { CreatePostService } from './service/createpost.service';
+import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
+
+
 
 
 
@@ -50,8 +53,8 @@ import { CreatePostService } from './service/createpost.service';
     ForgetPwdComponent,
     PostCreateComponent,
     ActivateComponent,
-    ContentPublishPanel
-   
+      ContentPublishPanel,
+    PageNotFoundComponent
 
   ],
   providers: [HttpService, SignUpService, ActivateService, AutheticationService, ContentPublishService, CreatePostService],

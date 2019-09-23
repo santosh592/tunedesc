@@ -30,6 +30,7 @@ var activate_service_1 = require("./service/activate.service");
 var authentication_service_1 = require("./service/authentication.service");
 var contentpublishpanel_service_1 = require("./service/contentpublishpanel.service");
 var createpost_service_1 = require("./service/createpost.service");
+var pagenotfound_component_1 = require("./pagenotfound/pagenotfound.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -55,7 +56,8 @@ AppModule = __decorate([
             forgetpwd_component_1.ForgetPwdComponent,
             createpost_component_1.PostCreateComponent,
             activate_component_1.ActivateComponent,
-            contentpublishpanel_component_1.ContentPublishPanel
+            contentpublishpanel_component_1.ContentPublishPanel,
+            pagenotfound_component_1.PageNotFoundComponent
         ],
         providers: [http_service_1.HttpService, signup_service_1.SignUpService, activate_service_1.ActivateService, authentication_service_1.AutheticationService, contentpublishpanel_service_1.ContentPublishService, createpost_service_1.CreatePostService],
         bootstrap: [app_component_1.AppComponent]

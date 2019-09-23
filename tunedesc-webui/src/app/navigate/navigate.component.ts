@@ -46,7 +46,7 @@ export class NavigateComponent implements OnInit {
     activeClass: String ;
 
    goToHome() {
-       this.router.navigate(['/home']);
+       this.router.navigate(['/login']);
     }
 
     goToStartup() {

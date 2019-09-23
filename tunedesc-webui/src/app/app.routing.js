@@ -11,6 +11,7 @@ var forgetpwd_component_1 = require("./login/forgetpwd.component");
 var createpost_component_1 = require("./post/createpost.component");
 var contentpublishpanel_component_1 = require("./post/contentpublishpanel.component");
 var activate_component_1 = require("./activate/activate.component");
+var pagenotfound_component_1 = require("./pagenotfound/pagenotfound.component");
 var appRoutes = [
     {
         path: 'app', component: app_component_1.AppComponent,
@@ -30,7 +31,7 @@ var appRoutes = [
     { path: '', redirectTo: '/app', pathMatch: 'full' },
     {
         path: 'login',
-        component: login_component_1.LoginComponent
+        component: login_component_1.LoginComponent,
     },
     {
         path: 'signup',
@@ -56,9 +57,9 @@ var appRoutes = [
         component: activate_component_1.ActivateComponent
     },
     // otherwise redirect to app
-    { path: '**', redirectTo: ''
+    {
+        path: '**', component: pagenotfound_component_1.PageNotFoundComponent, redirectTo: ''
     }
 ];
-exports.routing = router_1.RouterModule.forRoot(appRoutes);
-router_1.RouterModule.forChild(appRoutes);
+exports.routing = router_1.RouterModule.forRoot(appRoutes, { enableTracing: true });
 //# sourceMappingURL=app.routing.js.map

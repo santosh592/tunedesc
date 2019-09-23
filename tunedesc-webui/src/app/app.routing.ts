@@ -8,7 +8,8 @@ import {LoginComponent}from './login/login.component';
 import {ForgetPwdComponent}from './login/forgetpwd.component';
 import {PostCreateComponent}from './post/createpost.component'
 import {ContentPublishPanel} from './post/contentpublishpanel.component'
-import {ActivateComponent}from './activate/activate.component'
+import { ActivateComponent } from './activate/activate.component'
+import { PageNotFoundComponent} from './pagenotfound/pagenotfound.component'
 
 
 
@@ -31,14 +32,15 @@ const appRoutes: Routes = [
                     component: HomeComponent,
                     outlet: 'body1'
                 },
-
+                
             ]
     },
     
 { path: '', redirectTo: '/app', pathMatch: 'full' },
 {
 path: 'login',
-component: LoginComponent
+component: LoginComponent,
+ 
 },
 {
 path: 'signup',
@@ -71,11 +73,12 @@ component: ActivateComponent
 },
 
 // otherwise redirect to app
-{path: '**', redirectTo: ''
+{
+        path: '**', component: PageNotFoundComponent, redirectTo: ''
 }
 ];
 
 
-export const routing = RouterModule.forRoot(appRoutes);
-RouterModule.forChild(appRoutes);
+export const routing = RouterModule.forRoot(appRoutes, { enableTracing: true });
+
 

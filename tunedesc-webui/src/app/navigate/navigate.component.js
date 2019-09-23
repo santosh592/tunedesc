@@ -38,7 +38,7 @@ var NavigateComponent = (function () {
         });
     };
     NavigateComponent.prototype.goToHome = function () {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/login']);
     };
     NavigateComponent.prototype.goToStartup = function () {
         this.router.navigate(['/startup']);
