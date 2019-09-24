@@ -62,4 +62,4 @@ var appRoutes = [
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes, { enableTracing: true });
-//# sourceMappingURL=app.routing.js.map
+//# sourceMappingURL=app.routing.module.js.map

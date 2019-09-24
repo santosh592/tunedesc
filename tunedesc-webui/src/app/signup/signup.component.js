@@ -14,7 +14,7 @@ var router_1 = require("@angular/router");
 var signup_service_1 = require("../service/signup.service");
 var User_1 = require("../model/User");
 var Role_1 = require("../model/Role");
-var SignupComponent = (function () {
+var SignupComponent = /** @class */ (function () {
     function SignupComponent(router, signupservice) {
         this.router = router;
         this.signupservice = signupservice;
@@ -32,35 +32,35 @@ var SignupComponent = (function () {
         var user = new User_1.User(this.username, this.password, this.email, this.phonenumber, arrofroles);
         this.signupservice.signup(user).subscribe(function (data) { _this.userdata = data; console.log(data); });
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], SignupComponent.prototype, "username", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], SignupComponent.prototype, "password", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], SignupComponent.prototype, "confirm_password", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], SignupComponent.prototype, "email", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], SignupComponent.prototype, "phonenumber", void 0);
+    SignupComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'signup',
+            templateUrl: 'signup.component.html'
+        }),
+        __metadata("design:paramtypes", [router_1.Router, signup_service_1.SignUpService])
+    ], SignupComponent);
     return SignupComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], SignupComponent.prototype, "username", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], SignupComponent.prototype, "password", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], SignupComponent.prototype, "confirm_password", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], SignupComponent.prototype, "email", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], SignupComponent.prototype, "phonenumber", void 0);
-SignupComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'signup',
-        templateUrl: 'signup.component.html'
-    }),
-    __metadata("design:paramtypes", [router_1.Router, signup_service_1.SignUpService])
-], SignupComponent);
 exports.SignupComponent = SignupComponent;
 //# sourceMappingURL=signup.component.js.map

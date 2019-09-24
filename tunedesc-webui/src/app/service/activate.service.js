@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var http_service_1 = require("./http.service");
 var core_1 = require("@angular/core");
-var ActivateService = (function () {
+var ActivateService = /** @class */ (function () {
     function ActivateService(httpservice) {
         this.httpservice = httpservice;
     }
@@ -19,11 +19,11 @@ var ActivateService = (function () {
         console.log(id);
         return this.httpservice.httpGet('/user/activate/' + id, '8080', '');
     };
+    ActivateService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_service_1.HttpService])
+    ], ActivateService);
     return ActivateService;
 }());
-ActivateService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_service_1.HttpService])
-], ActivateService);
 exports.ActivateService = ActivateService;
 //# sourceMappingURL=activate.service.js.map

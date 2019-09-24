@@ -114,7 +114,7 @@ public class OAuth2Configuration extends
         config.addAllowedMethod("POST");
         config.addAllowedMethod("PUT");
         config.addAllowedMethod("DELETE");
-        config.addAllowedOrigin("http://localhost:3000");
+        config.addAllowedOrigin("http://localhost:4200");
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
 

@@ -11,18 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var http_service_1 = require("./http.service");
 var core_1 = require("@angular/core");
-var SignUpService = (function () {
+var SignUpService = /** @class */ (function () {
     function SignUpService(httpservice) {
         this.httpservice = httpservice;
     }
     SignUpService.prototype.signup = function (user) {
         return this.httpservice.httpPost(user, '/user/saveDocument', '8080', '');
     };
+    SignUpService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_service_1.HttpService])
+    ], SignUpService);
     return SignUpService;
 }());
-SignUpService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_service_1.HttpService])
-], SignUpService);
 exports.SignUpService = SignUpService;
 //# sourceMappingURL=signup.service.js.map

@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var activate_service_1 = require("../service/activate.service");
-var ActivateComponent = (function () {
+var ActivateComponent = /** @class */ (function () {
     function ActivateComponent(router, activateservice) {
         this.router = router;
         this.activateservice = activateservice;
@@ -38,15 +38,15 @@ var ActivateComponent = (function () {
     ActivateComponent.prototype.ngOnDestroy = function () {
         this.sub.unsubscribe();
     };
+    ActivateComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'activate',
+            templateUrl: 'activate.component.html',
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute, activate_service_1.ActivateService])
+    ], ActivateComponent);
     return ActivateComponent;
 }());
-ActivateComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'activate',
-        templateUrl: 'activate.component.html',
-    }),
-    __metadata("design:paramtypes", [router_1.ActivatedRoute, activate_service_1.ActivateService])
-], ActivateComponent);
 exports.ActivateComponent = ActivateComponent;
 //# sourceMappingURL=activate.component.js.map

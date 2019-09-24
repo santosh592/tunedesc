@@ -2,12 +2,12 @@ import{Role}from'./role';
 
 export class User {
 
-private username: string;
-private password: string;
+username: string;
+password: string;
 // private confirm_password: string;
-private email: string;
-private phonenumber:string;
-private roleDtos:Role[];
+email: string;
+phonenumber:string;
+roleDtos:Role[];
 //public full_name: string;
 
 constructor(username: string, password: string,
@@ -19,8 +19,5 @@ constructor(username: string, password: string,
             this.roleDtos=roleDtos;
 
     }
-
-    
-  
     
 }

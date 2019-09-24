@@ -22,7 +22,8 @@ export class SignupComponent {
     @Input() phonenumber: string;
     userdata ={};
 
-    constructor(private router: Router, private signupservice: SignUpService) {
+  constructor(private router: Router, private signupservice: SignUpService) {
+  
 
     }
 

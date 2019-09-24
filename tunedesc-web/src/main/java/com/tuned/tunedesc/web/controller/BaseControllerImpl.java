@@ -20,7 +20,7 @@ public abstract class BaseControllerImpl<T> implements BaseController<T> {
         this.baseService = baseService;
     }
 
-    @CrossOrigin("http://localhost:3000")
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/saveDocument", method = RequestMethod.POST)
     public @ResponseBody
     ResponseEntity<T> saveDocument(@Valid @RequestBody T e) throws SequenceException {
