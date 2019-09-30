@@ -1,41 +1,43 @@
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-    <div class="container topnav">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <img src="assets/img/title-logo.png" class="img-responsive" alt="Cinque Terre">
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div *ngIf='login' class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+<nav class="navbar navbar-light bg-light" role="navigation">
 
-                <li>
-                    <a *ngIf="!userdetails.username" class="btn btn-info" (click)="goToLogin()">LOGIN</a>
-                </li>
-                <li>
-                    <a *ngIf="!userdetails.username" class="btn btn-info" (click)="goToSignUp()">SIGNUP</a>
-                </li>
+    <!-- Brand and toggle get grouped for better mobile display -->
 
-            </ul>
-        </div>
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/title-logo.png" width="100" height="60" class="d-inline-block align-top" alt="">
+    </a>
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div *ngIf='login' class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav  navbar-right nav-pills">
+
+            <li class="nav-item">
+                <a *ngIf="!userdetails.username" class="btn btn-info" (click)="goToLogin()">LOGIN</a>
+            </li>
+            <li class="nav-item">
+                <a *ngIf="!userdetails.username" class="btn btn-info" (click)="goToSignUp()">SIGNUP</a>
+            </li>
+
+        </ul>
+
         <div class="bs-example">
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    
-                    <a routerLink="/login" href="#" class="nav-link btn-primary" >Home</a>
+
+                    <a routerLink="/login" href="#" class="nav-link btn-primary">Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link btn-primary" (click)="goToStartup()">Startup</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link btn-primary"(click)="goToBusiness">Business</a>
+                    <a href="#" class="nav-link btn-primary" (click)="goToBusiness()">Business</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link btn-primary" (click)="goToTech()">Technology</a>
@@ -49,7 +51,7 @@
         </div>
         <div class="navbar-right" *ngIf="userdetails.username">
 
-            <a class="btn btn-secondarydropdown-toggle " data-toggle="dropdown">
+            <a class="btn btn-secondary dropdown-toggle " data-toggle="dropdown">
                 {{userdetails.username}}
                 <b class="caret"></b>
             </a>
@@ -66,15 +68,16 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a (click)=logout()>
+                    <a (click)=removeAccessTokenFromCache()>
                         <i class="fa fa-sign-out"></i> SIGNOUT
                     </a>
                 </li>
 
             </ul>
-
         </div>
-        <!-- /.navbar-collapse -->
+
     </div>
+    <!-- /.navbar-collapse -->
+
     <!-- /.container -->
 </nav>

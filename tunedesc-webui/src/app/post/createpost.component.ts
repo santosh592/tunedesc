@@ -1,7 +1,7 @@
 import{Component, Input, OnInit}from '@angular/core';
 import {Router}from '@angular/router';
 import {FormGroup, FormBuilder, Validators}from '@angular/forms';
-import { ContentPublishService } from '../service/contentpublishpanel.service';
+import {ContentPublishService } from '../service/contentpublishpanel.service';
 import {AutheticationService }from '../service/authentication.service'
 
 
@@ -47,15 +47,10 @@ export class PostCreateComponent implements OnInit {
 
 
 
-
-    test() {
-        console.log(this.contenttype);
-    }
-
     goToCreatePost() {
         console.log(this.contenttype);
         localStorage.setItem('posttype', this.contenttype)
-        this.router.navigate(['/contentpublish'])
+        this.router.navigate(['/app-mediumeditor'])
         }
 
     }

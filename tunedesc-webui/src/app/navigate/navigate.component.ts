@@ -56,9 +56,11 @@ export class NavigateComponent implements OnInit {
 
     goToBusiness() {
         this.router.navigate(['/business']);
-    } goToTech() {
+    } 
+    goToTech() {
         this.router.navigate(['/tech']);
-    } goToScience() {
+    } 
+    goToScience() {
         this.router.navigate(['/science']);
     }
 
@@ -79,6 +81,10 @@ export class NavigateComponent implements OnInit {
     }
     goToCreateEvents() {
         this.router.navigate(['/createpost'])
+    }
+
+    removeAccessTokenFromCache(){
+        localStorage.removeItem('token')
     }
 }
 

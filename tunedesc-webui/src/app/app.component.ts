@@ -1,6 +1,6 @@
-import {Component}from'@angular/core';
-import {Router }from '@angular/router';
-import {NgForm}from '@angular/forms';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 //import { AutheticationService } from './service/authentication.service';
 
 @Component({
@@ -30,8 +30,8 @@ export class AppComponent {
     //   console.log(localStorage.getItem("access_token"));
     //   this.router.navigate(['/dashboard']);
 
-    }
   }
+}
 
 
 

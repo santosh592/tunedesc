@@ -1,0 +1,29 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+
+    </div>
+    <div class="logo text-lowercase">
+      <p class="font-italic">{{userdetails.username}}, start writing post on {{contenttype}} and Click publish when
+        finished
+      </p>
+    </div>
+  </div>
+  <div class="row ">
+      <div class="col-md-6 mb-3">
+          <label for="firstName">First name</label>
+          <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+          <div class="invalid-feedback">
+            Valid first name is required.
+          </div>
+       </div>
+
+      <medium-editor [(editorModel)]="thihithi"
+        [editorOptions]="{'toolbar': {'buttons': ['bold', 'italic', 'underline', 'h1', 'h2', 'h3']}}"
+        [editorPlaceholder]="santosh"></medium-editor>
+
+  </div>
+  </div>
+
+
+
