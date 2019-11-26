@@ -1,2 +1,2 @@
 # tundesc
-local marketing
+content publisher platform
