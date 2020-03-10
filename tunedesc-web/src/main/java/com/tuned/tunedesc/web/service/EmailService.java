@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class EmailService {
 
-    public void sendEmail(String email,String activeteLink) {
+    public void sendEmail(String email, String activeteLink) {
 
         final String username = "santosh.wa296@gmail.com";
         final String password = "09K41a0592@";
@@ -31,7 +31,7 @@ public class EmailService {
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(email));
             message.setSubject("Welcome to tunedesc");
-            message.setText("Please Activate your Account with below link "+activeteLink);
+            message.setText("Please Activate your Account with below link " + activeteLink);
             Transport.send(message);
 
             System.out.println("Done");

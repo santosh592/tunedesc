@@ -1,7 +1,6 @@
 package com.tuned.tunedesc.web.repository;
 
 
-
 public class RoleByIdRepository {
 
 

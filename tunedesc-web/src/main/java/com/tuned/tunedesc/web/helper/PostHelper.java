@@ -5,6 +5,7 @@ import com.tuned.tunedesc.common.helper.ModelDtoHelper;
 import com.tuned.tunedesc.web.dto.PostDto;
 import com.tuned.tunedesc.web.dto.UserDto;
 import com.tuned.tunedesc.web.entity.Post;
+import com.tuned.tunedesc.web.entity.PostType;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,17 +16,24 @@ public class PostHelper implements ModelDtoHelper<PostDto, Post> {
         PostDto postDto;
 
         if (post != null) {
+
+
             postDto = new PostDto();
-            postDto.setDescription(post.getDescription());
-            postDto.setPostType(post.getPostType());
-            postDto.setTitle(post.getTitle());
-            postDto.setPostExpirationDate(post.getPostExprationDate());
+
+            PostType postType = new PostType();
+            postType.setType(post.getPostType().getType());
+
+            postDto.setPostType(postType);
 
             UserDto userDto = new UserDto();
+
+
             userDto.setId(post.getUser().getId());
             postDto.setUserId(post.getUser().getId());
 
             postDto.setId(post.getId());
+            postDto.setTitle(post.getTitle());
+            postDto.setContent(post.getContent());
 
 
             return postDto;
@@ -42,14 +50,17 @@ public class PostHelper implements ModelDtoHelper<PostDto, Post> {
 
         if (postDto != null) {
             post = new Post();
-            post.setDescription(postDto.getDescription());
+            PostType postType = new PostType();
+            postType.setType(postDto.getPostType().getType());
+
             post.setPostType(postDto.getPostType());
-            post.setTitle(postDto.getTitle());
-            post.setPostExprationDate(postDto.getPostExpirationDate());
+
             User user = new User();
             user.setId(postDto.getUserId());
             post.setUser(user);
             post.setId(postDto.getId());
+            post.setTitle(postDto.getTitle());
+            post.setContent(postDto.getContent());
 
 
             return post;

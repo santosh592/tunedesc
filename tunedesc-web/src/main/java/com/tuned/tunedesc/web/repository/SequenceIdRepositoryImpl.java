@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class SequenceIdRepositoryImpl implements  SequenceIdRepository {
+public class SequenceIdRepositoryImpl implements SequenceIdRepository {
 
     @Autowired
     private MongoOperations mongoOperation;
@@ -35,9 +35,8 @@ public class SequenceIdRepositoryImpl implements  SequenceIdRepository {
         options.returnNew(true);
 
 
-
         // this is the magic happened
-        SequenceId seqId = mongoOperation.findAndModify(query, update, options,SequenceId.class);
+        SequenceId seqId = mongoOperation.findAndModify(query, update, options, SequenceId.class);
 
         /*
         if no id, throws SequenceException

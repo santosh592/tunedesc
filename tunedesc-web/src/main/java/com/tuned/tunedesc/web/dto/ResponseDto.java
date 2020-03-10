@@ -6,7 +6,7 @@ public class ResponseDto<T> {
 
 
     private T resposeobject;
-    private List<T>  listOfobjects;
+    private List<T> listOfobjects;
 
     private String Message;
 

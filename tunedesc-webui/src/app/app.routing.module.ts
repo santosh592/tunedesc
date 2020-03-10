@@ -10,6 +10,7 @@ import { PostCreateComponent } from './post/createpost.component';
 import { ActivateComponent } from './activate/activate.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { MediumeditorComponent } from './mediumeditor/mediumeditor.component';
+import { PublishedConfirmComponent } from './mediumeditor/publishedconfirm.component';
 
 
 
@@ -68,6 +69,11 @@ const appRoutes: Routes = [
     {
         path: 'app-mediumeditor',
         component: MediumeditorComponent
+
+    },
+    {
+        path: 'confirmpublish/:id',
+        component: PublishedConfirmComponent
 
     },
 

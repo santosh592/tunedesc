@@ -29,16 +29,25 @@
             ],
             "styles": [
               "src/styles.scss",
-			  "node_modules/medium-editor/dist/css/medium-editor.min.css",
-			  "node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.min.css",
-              "node_modules/medium-editor/dist/css/themes/default.css"
+			        "node_modules/medium-editor/dist/css/medium-editor.min.css",
+			       
+              "node_modules/medium-editor/dist/css/themes/default.css",
+              "node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.min.css"
+
 			  
             ],
             "scripts": [
 			
 			"node_modules/medium-editor/dist/js/medium-editor.min.js",
 			"node_modules/medium-editor/dist/js/medium-editor.js",
-			"node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.js"]
+      "node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.js",
+
+     "node_modules/core-js/client/shim.min.js",
+    "node_modules/zone.js/dist/zone.js",
+    "node_modules/systemjs/dist/system.src.js",
+
+    "src/systemjs.config.js"
+      ]
           },
           "configurations": {
             "production": {

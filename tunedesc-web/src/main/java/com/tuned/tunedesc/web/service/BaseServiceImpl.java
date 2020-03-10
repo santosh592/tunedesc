@@ -4,13 +4,13 @@ package com.tuned.tunedesc.web.service;
 import com.tuned.tunedesc.common.entity.BaseModel;
 import com.tuned.tunedesc.common.entity.User;
 import com.tuned.tunedesc.common.helper.ModelDtoHelper;
+import com.tuned.tunedesc.common.repository.BaseRepository;
+import com.tuned.tunedesc.common.repository.UserRepository;
 import com.tuned.tunedesc.web.dto.ResponseDto;
 import com.tuned.tunedesc.web.dto.UserDto;
 import com.tuned.tunedesc.web.exception.SequenceException;
 import com.tuned.tunedesc.web.helper.UserHelper;
-import com.tuned.tunedesc.common.repository.BaseRepository;
 import com.tuned.tunedesc.web.repository.SequenceIdRepository;
-import com.tuned.tunedesc.common.repository.UserRepository;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -20,16 +20,15 @@ import java.util.List;
 public abstract class BaseServiceImpl<T, E extends Serializable> implements BaseService<T> {
 
 
-    private BaseRepository<E> baseRepository;
-
-    private ModelDtoHelper<T, E> baseHelper;
     private static final String HOSTING_SEQ_KEY = "hosting";
+    private BaseRepository<E> baseRepository;
+    private ModelDtoHelper<T, E> baseHelper;
     private SequenceIdRepository sequenceDao;
 
     public BaseServiceImpl(BaseRepository<E> baseRepository, SequenceIdRepository sequenceIdRepository, ModelDtoHelper<T, E> baseHelper) {
         this.sequenceDao = sequenceIdRepository;
         this.baseRepository = baseRepository;
-        this.baseHelper=baseHelper;
+        this.baseHelper = baseHelper;
 
     }
 
@@ -98,7 +97,7 @@ public abstract class BaseServiceImpl<T, E extends Serializable> implements Base
             User usersaved = userRepository.save(user);
             EmailService emailService = new EmailService();
             emailService.sendEmail(usersaved.getEmail(), "http://localhost:3000/activateaccount/" + usersaved.getId());
-            UserHelper userHelper=new UserHelper();
+            UserHelper userHelper = new UserHelper();
             UserDto userDto = userHelper.buildDto(usersaved);
             responseDto = new ResponseDto();
             responseDto.setMessage("link for activating your account sent to your email");

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value="/role")
+@RequestMapping(value = "/role")
 public class RoleControllerImpl extends BaseControllerImpl<RoleDto> implements RoleController {
 
     @Autowired

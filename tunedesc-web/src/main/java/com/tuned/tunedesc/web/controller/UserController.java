@@ -10,5 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface UserController {
 
     ResponseEntity<ResponseDto<UserDto>> currentUserName(Authentication authentication);
+
     ResponseEntity<ResponseDto<AccountDto>> activateAccount(@PathVariable long id);
 }

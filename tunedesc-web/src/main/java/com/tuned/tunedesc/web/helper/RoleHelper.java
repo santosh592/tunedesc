@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 public class RoleHelper implements ModelDtoHelper<RoleDto, Role> {
 
     final static Logger log = Logger.getLogger(RoleHelper.class);
+
     public RoleDto buildDto(Role role) {
 
         RoleDto roledto;

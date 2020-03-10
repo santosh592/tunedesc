@@ -12,9 +12,7 @@ import org.springframework.web.filter.CorsFilter;
 
 @Configuration
 @EnableResourceServer
-public class ResourceManagerConfig extends ResourceServerConfigurerAdapter
-
-{
+public class ResourceManagerConfig extends ResourceServerConfigurerAdapter {
 
     public ResourceManagerConfig() {
         super();
@@ -27,13 +25,14 @@ public class ResourceManagerConfig extends ResourceServerConfigurerAdapter
                 .antMatcher("/**")
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/post/content-type").permitAll()
+                .antMatchers(HttpMethod.POST, "/post/content").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/requestdetails/view-all-details/**").permitAll()
                 .antMatchers("/api/**").authenticated();
 
 
     }
 
-     @Bean
+    @Bean
 
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

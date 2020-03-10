@@ -39,6 +39,7 @@ export class SignupComponent {
         
         
             let user = new User(this.username, this.password, this.email, this.phonenumber, arrofroles);
+        console.log(user)
             this.signupservice.signup(user).subscribe((data :any) => {this.userdata = data ;console.log(data);});
         
 

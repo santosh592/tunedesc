@@ -5,8 +5,7 @@ import com.tuned.tunedesc.web.exception.SequenceException;
 
 public interface SequenceIdRepository {
 
-Long getNextSequenceId(String hostingSeqKey) throws SequenceException;
-
+    Long getNextSequenceId(String hostingSeqKey) throws SequenceException;
 
 
 }

@@ -1,10 +1,10 @@
 <!-- Navigation -->
-<nav class="navbar navbar-light bg-light" role="navigation">
+<nav class="navbar navbar-expand-lg  navbar-light bg-light" role="navigation">
 
     <!-- Brand and toggle get grouped for better mobile display -->
 
     <a class="navbar-brand" href="#">
-        <img src="assets/img/title-logo.png" width="100" height="60" class="d-inline-block align-top" alt="">
+        <img src="assets/img/title-logo.png" width="80" height="40" class="d-inline-block align-top" alt="">
     </a>
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -15,19 +15,9 @@
 
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div *ngIf='login' class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav  navbar-right nav-pills">
+    <div  class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       
 
-            <li class="nav-item">
-                <a *ngIf="!userdetails.username" class="btn btn-info" (click)="goToLogin()">LOGIN</a>
-            </li>
-            <li class="nav-item">
-                <a *ngIf="!userdetails.username" class="btn btn-info" (click)="goToSignUp()">SIGNUP</a>
-            </li>
-
-        </ul>
-
-        <div class="bs-example">
             <ul class="nav nav-pills">
                 <li class="nav-item">
 
@@ -48,12 +38,24 @@
 
                 </li>
             </ul>
-        </div>
+    </div>
+    <div class="navbar-right col-2">
+        <ul *ngIf='login' class="nav navbar-nav  nav-pills">
+
+                <li class="float-left nav-item ">
+                    <a *ngIf="!userdetails.username" class="btn btn-info " (click)="goToLogin()">LOGIN</a>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf="!userdetails.username" class="btn btn-info" (click)="goToSignUp()">SIGNUP</a>
+                </li>
+    
+            </ul>
+    </div>
         <div class="navbar-right" *ngIf="userdetails.username">
 
-            <a class="btn btn-secondary dropdown-toggle " data-toggle="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
                 {{userdetails.username}}
-                <b class="caret"></b>
+                
             </a>
             <ul class="dropdown-menu">
                 <li>
@@ -76,7 +78,7 @@
             </ul>
         </div>
 
-    </div>
+    
     <!-- /.navbar-collapse -->
 
     <!-- /.container -->

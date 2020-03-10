@@ -47,9 +47,9 @@ export class PostCreateComponent implements OnInit {
 
 
 
-    goToCreatePost() {
-        console.log(this.contenttype);
-        localStorage.setItem('posttype', this.contenttype)
+    goToCreatePost(contentType:string) {
+       
+        localStorage.setItem('posttype', contentType)
         this.router.navigate(['/app-mediumeditor'])
         }
 

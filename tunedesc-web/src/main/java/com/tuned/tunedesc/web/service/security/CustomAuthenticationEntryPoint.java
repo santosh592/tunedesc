@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
-public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint{
+public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
-	@Override
-	public void commence(HttpServletRequest arg0, HttpServletResponse arg1,
-			AuthenticationException arg2) throws IOException, ServletException {
-		arg1.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
-		
-	}
-	
+    @Override
+    public void commence(HttpServletRequest arg0, HttpServletResponse arg1,
+                         AuthenticationException arg2) throws IOException, ServletException {
+        arg1.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+
+    }
+
 }

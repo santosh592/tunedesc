@@ -155,6 +155,3 @@
 	
 })(jQuery);**/
 
-.bs - example{
-    margin: 20px;
-}

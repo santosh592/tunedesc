@@ -12,6 +12,9 @@ public class CategoryHelper implements ModelDtoHelper<CatogoryDto, Catogory> {
         CatogoryDto catogoryDto = new CatogoryDto();
         catogoryDto.setId(catogory.getId());
         catogoryDto.setType(catogory.getType());
+        catogoryDto.setDescription(catogory.getDescription());
+
+        catogoryDto.setImagelocation(catogory.getImagelocation());
         return catogoryDto;
 
     }
@@ -21,6 +24,8 @@ public class CategoryHelper implements ModelDtoHelper<CatogoryDto, Catogory> {
 
         catogory.setId(catogoryDto.getId());
         catogory.setType(catogoryDto.getType());
+        catogory.setDescription(catogoryDto.getDescription());
+        catogory.setImagelocation(catogoryDto.getImagelocation());
         return catogory;
 
     }

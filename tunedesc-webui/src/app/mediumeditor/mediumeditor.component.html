@@ -1,29 +1,37 @@
-<div class="container mt-3">
-  <div class="row">
-    <div class="col">
+<div class="container mt-3 ">
+    <div class="logo">
+        <div class="col-12"> {{userdetails.username}} ,start writing below when finished press publish,preview is beside
+            the text box
 
+        </div>
     </div>
-    <div class="logo text-lowercase">
-      <p class="font-italic">{{userdetails.username}}, start writing post on {{contenttype}} and Click publish when
-        finished
-      </p>
+    <div class="row">
+        <button class="btn btn-outline-primary btn-lg" (click)="publishContent()">publish </button>
+        <div class="col-sm"></div>
+        <!-- <div class="col-sm"></div> -->
+        <div class="col-5 alert alert-primary" role="alert">
+            Preview
+        </div>
     </div>
-  </div>
-  <div class="row ">
-      <div class="col-md-6 mb-3">
-          <label for="firstName">First name</label>
-          <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-          <div class="invalid-feedback">
-            Valid first name is required.
-          </div>
-       </div>
+    <div class="row">
+        <div class="col-6 my-1">
+            <label class="sr-only" for="inlineFormInputGroupUsername">TITLE</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <h5>#{{contenttype}} &nbsp;&nbsp;</h5>
+                        <h4>#TITLE &nbsp;&nbsp;</h4>
+                    </div>
+                </div>
+                <input [(ngModel)]="title" type="text" class="form-control form-control-lg"
+                    id="inlineFormInputGroupUsername" placeholder="" style="font-weight: bold;">
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
 
-      <medium-editor [(editorModel)]="thihithi"
-        [editorOptions]="{'toolbar': {'buttons': ['bold', 'italic', 'underline', 'h1', 'h2', 'h3']}}"
-        [editorPlaceholder]="santosh"></medium-editor>
+        <div #editable class="col-6" style="min-height: 85vh"></div>
+        <div *ngIf="editor" class="shadow col-6" [innerHTML]="editor.elements[0].innerHTML"></div>
+    </div>
 
-  </div>
-  </div>
-
-
-
+</div>

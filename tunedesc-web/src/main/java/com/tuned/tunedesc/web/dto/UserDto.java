@@ -20,7 +20,6 @@ public class UserDto extends BaseDtoImpl implements BaseDto {
     private String phonenumber;
 
 
-
     private boolean enabled = false;
     private boolean accountNonExpired = false;
     private boolean credentialsNonExpired = false;
@@ -69,7 +68,6 @@ public class UserDto extends BaseDtoImpl implements BaseDto {
     }
 
 
-
     public boolean isEnabled() {
         return enabled;
     }
@@ -103,10 +101,9 @@ public class UserDto extends BaseDtoImpl implements BaseDto {
     }
 
 
-
     @Override
     public void accept(BaseVisitor baseVisitorDto) {
-       setVarhelper( baseVisitorDto.visit(this));
+        setVarhelper(baseVisitorDto.visit(this));
     }
 
 

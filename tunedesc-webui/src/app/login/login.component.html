@@ -3,7 +3,7 @@
     <!-- Main Form -->
     <div class="login-form-1">
         <form id="login-form" class="text-left">
-            <div class="login-form-main-message">{{invalidcredit}}</div>
+            <div class="login-form-main-message"></div>
             <div class="main-login-form">
                 <div class="login-group">
                     <div class="form-group">
@@ -27,6 +27,9 @@
             <div class="etc-login-form">
                 <p>forgot your password? <a (click)="goToforgetpwd()">click here</a></p>
                 <p>new user? <a (click)="goToSignUp()">create new account</a></p>
+            </div>
+            <div *ngIf="invalidcredit" class="alert alert-danger" role="alert">
+                <p>{{invalidcredit}}</p>  
             </div>
         </form>
 

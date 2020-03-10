@@ -10,11 +10,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
-@CrossOrigin
 @RestController
+@CrossOrigin(maxAge = 3600)
 @RequestMapping(value = "/post")
 public class PostContollerImpl extends BaseControllerImpl<PostDto> implements PostController {
 
@@ -33,7 +34,7 @@ public class PostContollerImpl extends BaseControllerImpl<PostDto> implements Po
     @RequestMapping(value = "/content-type", method = RequestMethod.GET)
     public @ResponseBody
     ResponseEntity<ResponseDto<CatogoryDto>> findAllContentType() throws SequenceException {
-       List<CatogoryDto> postTypeDtos= postService.getTypeOfPostList();
+        List<CatogoryDto> postTypeDtos = postService.getTypeOfPostList();
         ResponseDto responseDto = null;
         if (postTypeDtos != null) {
             responseDto = new ResponseDto();
@@ -47,19 +48,20 @@ public class PostContollerImpl extends BaseControllerImpl<PostDto> implements Po
 
     }
 
-    @RequestMapping(value = "/businessType", method = RequestMethod.GET)
-    public @ResponseBody
-    ResponseEntity<ResponseDto<CatogoryDto>> findAllbusinessType() throws SequenceException {
-        List<CatogoryDto> businessTypeDtos= postService.getTypeOfBusinessList();
-        ResponseDto responseDto = null;
-        if (businessTypeDtos != null) {
-            responseDto = new ResponseDto();
-            responseDto.setListOfobjects(businessTypeDtos);
-            responseDto.setMessage("type of business ");
 
-            return new ResponseEntity<ResponseDto<CatogoryDto>>(responseDto, HttpStatus.OK);
+    @RequestMapping(value = "/content", method = RequestMethod.POST)
+    public @ResponseBody
+    ResponseEntity<ResponseDto<PostDto>> postContent(@Valid @RequestBody PostDto postDto) throws SequenceException {
+        PostDto postedDocument = postService.postContent(postDto);
+        ResponseDto responseDto = null;
+        if (postedDocument != null) {
+            responseDto = new ResponseDto();
+            responseDto.setResposeobject(postedDocument);
+            responseDto.setMessage("post document inserted Sucessfully {}");
+
+            return new ResponseEntity<ResponseDto<PostDto>>(responseDto, HttpStatus.OK);
         } else {
-            return new ResponseEntity<ResponseDto<CatogoryDto>>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<ResponseDto<PostDto>>(HttpStatus.BAD_REQUEST);
         }
 
     }

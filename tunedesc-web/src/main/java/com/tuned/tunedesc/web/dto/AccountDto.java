@@ -10,12 +10,12 @@ public class AccountDto {
         return activated;
     }
 
-    public String getActivateMessage() {
-        return activateMessage;
-    }
-
     public void setActivated(boolean activated) {
         this.activated = activated;
+    }
+
+    public String getActivateMessage() {
+        return activateMessage;
     }
 
     public void setActivateMessage(String sctivateMessage) {

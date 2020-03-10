@@ -27,7 +27,6 @@ public class RoleDto extends BaseDtoImpl implements BaseDto {
     }
 
 
-
     @Override
     public void accept(BaseVisitor baseVisitorDto) {
         setVarhelper(baseVisitorDto.visit(this));

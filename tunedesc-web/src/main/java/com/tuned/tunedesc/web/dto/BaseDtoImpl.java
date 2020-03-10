@@ -1,13 +1,11 @@
 package com.tuned.tunedesc.web.dto;
 
 
-
 public class BaseDtoImpl {
 
     private Long id;
     @com.fasterxml.jackson.annotation.JsonIgnore
     private Object varhelper;
-
 
 
     public Object getVarhelper() {
@@ -25,7 +23,6 @@ public class BaseDtoImpl {
     public void setId(Long id) {
         this.id = id;
     }
-
 
 
 }

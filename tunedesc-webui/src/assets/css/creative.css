@@ -72,12 +72,6 @@ aside {
   transition: all 0.35s;
 }
 
-.navbar-default .navbar-header .navbar-brand {
-  /* color: #F05F40;
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 700;
-  text-transform: uppercase; */
-}
 .navbar-default .navbar-header .navbar-brand:hover,
 .navbar-default .navbar-header .navbar-brand:focus {
   color: #eb3812;
@@ -351,7 +345,7 @@ fieldset[disabled] .btn-default.active {
     .btn-primary:focus,
     .btn-primary.focus,
 
-    }
+    
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
@@ -409,10 +403,6 @@ img::selection {
 img::-moz-selection {
   color: white;
   background: transparent;
-}
-body {
-  webkit-tap-highlight-color: #222222;
-  
 }
 
 .Absolute-Center.is-Responsive {
@@ -559,7 +549,7 @@ image-intro {
   padding-left: 10px;
   padding-right: 10px;
   vertical-align: middle;
-  float: right;
+  
 }
 .nav-side-menu ul .active,
 .nav-side-menu li .active {
@@ -806,9 +796,6 @@ body {
   background-color: #fff;
   border: 1px solid rgba(0,0,0,0.1);  
 
- .form-signin-heading,
-	.checkbox {
-	  margin-bottom: 30px;
 	}
 
 	.checkbox {
@@ -820,11 +807,7 @@ body {
 	  font-size: 16px;
 	  height: auto;
 	  padding: 10px;
-		@include box-sizing(border-box);
-
-		&:focus {
-		  z-index: 2;
-		}
+		
 	}
 
 	input[type="text"] {
@@ -859,7 +842,6 @@ body {
     display: block;
     padding: 4px 6px;
     color: #555;
-    vertical-align: middle;
     border-radius: 4px;
     max-width: 100%;
     line-height: 22px;
@@ -910,4 +892,12 @@ body {
     font-size: 13px !important;
 }
 
-}
+textarea {
+  width: 300px;
+  height: 100px;
+  background-color: yellow;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  border: 1px solid black;
+ }

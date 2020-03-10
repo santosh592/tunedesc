@@ -1,37 +1,32 @@
 <!-- REGISTRATION FORM -->
-<div class="text-center" style="padding:70px 0">
+<div class="container mt-3">
     <div class="logo">Hi {{userdetails.username}}, Please choose type of article you are publishing today</div>
     <!-- Main Form -->
-    <div class="login-form-1">
-        <form id="register-form" class="text-left">
-            <div class="login-form-main-message"></div>
-            <div class="main-login-form">
-                <div class="login-group">
-                    <div class="form-group">
-
-                        <div class="input-group">
-
-                            <select id="type" class="selectpicker form-control" data-live-search="true"
-                                    title="Please select Type.." [(ngModel)]="contenttype"
-                                    (ngModelChange)="goToCreatePost()" name="posttype">
-                                <option>Please select one</option>
-                                <option *ngFor="let content of postTypeList.listOfobjects; let i = index">
-                                    {{content.type}}
-                                </option>
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let content of postTypeList.listOfobjects; let i = index">
 
 
-                            </select>
 
 
-                        </div>
-
-
-                    </div>
+            <!-- <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                <div class="card-header">{{content.type}}</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{content.type}}</h5>
+                    <p class="card-text">Startup,Business,science,technology,fiction,photography,events,automobile any content you want to write</p>
+                    <a (click)="goToCreatePost(content.type)" class="btn btn-success">Go somewhere</a>
                 </div>
-            </div>
-
-        </form>
+            </div> -->
+            <div class="card-deck">
+            <div class="card">
+                <a (click)="goToCreatePost(content.type)"> <img src={{content.imagelocation}} class="card-img-top" alt="..." style="width:400px;height:200px;"></a>
+                <div class="card-body">
+                  <h5 class="card-title">{{content.type}}</h5>
+                  <p class="card-text">{{content.description}}</p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+              </div>
+        </div>
     </div>
 
-    <!-- end:Main Form -->
 </div>

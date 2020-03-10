@@ -5,9 +5,12 @@ import com.tuned.tunedesc.web.dto.PostDto;
 
 import java.util.List;
 
-public interface PostService extends BaseService<PostDto>{
+public interface PostService extends BaseService<PostDto> {
 
-     List<CatogoryDto> getTypeOfPostList();
-     List<CatogoryDto> getTypeOfBusinessList();
+    List<CatogoryDto> getTypeOfPostList();
+
+    //List<CatogoryDto> getTypeOfBusinessList();
+    PostDto postContent(PostDto postDto);
+
 
 }

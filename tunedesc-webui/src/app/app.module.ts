@@ -25,7 +25,9 @@ import { ContentPublishService } from './service/contentpublishpanel.service';
 import { CreatePostService } from './service/createpost.service';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { MediumeditorComponent } from './mediumeditor/mediumeditor.component';
-import { MediumEditorModule } from 'angular2-medium-editor'
+import {PublishedConfirmComponent} from './mediumeditor/publishedconfirm.component'
+import { MediumEditorModule } from 'angular2-medium-editor';
+
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import { MediumEditorModule } from 'angular2-medium-editor'
     FormsModule,
     HttpModule,
     MediumEditorModule,
+    
 
     //InMemoryWebApiModule.forRoot(InMemoryDataService),
     routing
@@ -51,7 +54,8 @@ import { MediumEditorModule } from 'angular2-medium-editor'
     PostCreateComponent,
     ActivateComponent,
     PageNotFoundComponent,
-    MediumeditorComponent
+    MediumeditorComponent,
+    PublishedConfirmComponent
 
 
   ],

@@ -5,9 +5,9 @@ import org.springframework.http.ResponseEntity;
 
 public interface BaseController<T> {
 
-     ResponseEntity<T> saveDocument(T e) throws SequenceException;
+    ResponseEntity<T> saveDocument(T e) throws SequenceException;
 
-     ResponseEntity<T> findAllDocuments();
+    ResponseEntity<T> findAllDocuments();
 
 
 }

@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class RestAuthenticationAccessDeniedHandler implements
-		AccessDeniedHandler {
+        AccessDeniedHandler {
 
-	@Override
-	public void handle(HttpServletRequest arg0, HttpServletResponse arg1,
-			AccessDeniedException arg2) throws IOException, ServletException {
-		 arg1.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+    @Override
+    public void handle(HttpServletRequest arg0, HttpServletResponse arg1,
+                       AccessDeniedException arg2) throws IOException, ServletException {
+        arg1.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
 
-	}
+    }
 
 }

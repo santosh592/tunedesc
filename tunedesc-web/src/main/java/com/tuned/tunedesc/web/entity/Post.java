@@ -8,38 +8,43 @@ import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
-
 @Document(collection = "post")
 public class Post extends BaseModel implements Visitable {
 
-
-    private PostType postType;
-
     private String title;
 
-    private BusinessCategory businessCategory;
+    private String content;
+    @DBRef
+    private PostType postType;
 
     private String description;
-    private Date postExprationDate;
+
     @DBRef
     private User user;
 
     @PersistenceConstructor
-    public Post(Long id, PostType postType, String title, String description, User user, BusinessCategory businessCategory, Date postExprationDate) {
+    public Post(Long id, String title, String content, PostType postType, String description, User user) {
         super(id);
-        this.postType = postType;
         this.title = title;
+        this.content = content;
+        this.postType = postType;
+
         this.description = description;
         this.user = user;
-        this.businessCategory=businessCategory;
-        this.postExprationDate = postExprationDate;
+
     }
 
     public Post() {
 
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public PostType getPostType() {
         return postType;
@@ -47,14 +52,6 @@ public class Post extends BaseModel implements Visitable {
 
     public void setPostType(PostType postType) {
         this.postType = postType;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getDescription() {
@@ -73,20 +70,12 @@ public class Post extends BaseModel implements Visitable {
         this.user = user;
     }
 
-    public BusinessCategory getBusinessCategory() {
-        return businessCategory;
+    public String getTitle() {
+        return title;
     }
 
-    public void setBusinessCategory(BusinessCategory businessCategory) {
-        this.businessCategory = businessCategory;
-    }
-
-    public Date getPostExprationDate() {
-        return postExprationDate;
-    }
-
-    public void setPostExprationDate(Date postExprationDate) {
-        this.postExprationDate = postExprationDate;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     @Override
@@ -102,9 +91,8 @@ public class Post extends BaseModel implements Visitable {
     @Override
     public String toString() {
         return "Post{" +
-                "postType=" + postType +
-                ", title='" + title + '\'' +
-                ", businessCategory=" + businessCategory +
+                "content='" + content + '\'' +
+                ", postType=" + postType +
                 ", description='" + description + '\'' +
                 ", user=" + user +
                 '}';

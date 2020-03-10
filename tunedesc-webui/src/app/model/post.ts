@@ -1,28 +1,17 @@
+import { PostType } from "./PostType";
+
 export class Post {
-private companyName:string;
+   
+    private content: string;
 
-private businessCategory: string;
+    private postType: string;
+    private userId: string;
 
-private aboutcompany: string;
-
-private description: string;
-
-private postType: string;
-
-private title: string;
-
-private userId: string;
-
-
-    constructor(companyName: string, businessCategory: string, aboutcompany: string, description: string, postType: string, userId: string) {
-
-        this.companyName = companyName;
-        this.aboutcompany = aboutcompany;
-        this.description = description;
-        this.businessCategory = businessCategory;
+    constructor(content: string, postType: string, userId: string) {
+        this.content = content;
         this.postType = postType;
         this.userId = userId;
-
     }
+
 
 }

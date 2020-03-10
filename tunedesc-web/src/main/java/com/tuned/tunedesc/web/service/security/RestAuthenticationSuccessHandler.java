@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class RestAuthenticationSuccessHandler implements
-		AuthenticationSuccessHandler {
+        AuthenticationSuccessHandler {
 
-	@Override
-	public void onAuthenticationSuccess(HttpServletRequest arg0,
-			HttpServletResponse arg1, Authentication arg2) throws IOException,
-			ServletException {
+    @Override
+    public void onAuthenticationSuccess(HttpServletRequest arg0,
+                                        HttpServletResponse arg1, Authentication arg2) throws IOException,
+            ServletException {
 
-	}
+    }
 
 }

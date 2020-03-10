@@ -4,7 +4,7 @@ import com.tuned.tunedesc.common.entity.Role;
 import com.tuned.tunedesc.web.dto.RoleDto;
 
 
-public interface RoleService extends BaseService<RoleDto>{
+public interface RoleService extends BaseService<RoleDto> {
 
     public Role findRoleById(Long id);
 

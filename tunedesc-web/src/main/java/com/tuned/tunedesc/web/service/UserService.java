@@ -7,5 +7,6 @@ import com.tuned.tunedesc.web.dto.UserDto;
 
 public interface UserService extends BaseService<UserDto> {
     AccountDto activete(long id);
+
     public ResponseDto findByUsername(String username);
 }
