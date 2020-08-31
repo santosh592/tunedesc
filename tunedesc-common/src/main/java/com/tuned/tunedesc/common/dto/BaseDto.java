@@ -5,7 +5,7 @@ import com.tuned.tunedesc.common.visitor.BaseVisitor;
 
 
 public interface BaseDto {
-    public void accept(BaseVisitor baseVisitorDto);
+    void accept(BaseVisitor baseVisitorDto);
     @JsonIgnore
-    public Object getVistorDto();
+    Object getVistorDto();
 }

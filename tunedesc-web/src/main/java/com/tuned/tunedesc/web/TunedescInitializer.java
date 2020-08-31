@@ -1,7 +1,8 @@
 package com.tuned.tunedesc.web;
 
+
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 
 public class TunedescInitializer extends SpringBootServletInitializer {
@@ -14,6 +15,7 @@ public class TunedescInitializer extends SpringBootServletInitializer {
     }
 
 }
+
 
 
 

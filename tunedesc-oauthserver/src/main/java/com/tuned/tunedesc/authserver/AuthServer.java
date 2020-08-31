@@ -4,9 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-import java.util.Collections;
-
-@ComponentScan (basePackages = { "com.tuned.tunedesc.common.repository", "com.tuned.tunedesc.config","com.tuned.tunedesc.*"})
+@ComponentScan(basePackages = { "com.tuned.tunedesc.common.repository", "com.tuned.tunedesc.config","com.tuned.tunedesc.*"})
 @SpringBootApplication
 public class AuthServer {
 

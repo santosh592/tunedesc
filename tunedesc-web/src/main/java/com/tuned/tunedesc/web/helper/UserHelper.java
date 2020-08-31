@@ -5,7 +5,8 @@ import com.tuned.tunedesc.common.entity.User;
 import com.tuned.tunedesc.common.helper.ModelDtoHelper;
 import com.tuned.tunedesc.web.dto.RoleDto;
 import com.tuned.tunedesc.web.dto.UserDto;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.List;
 @Component
 public class UserHelper implements ModelDtoHelper<UserDto, User> {
 
-    final static Logger log = Logger.getLogger(UserHelper.class);
+    final static Logger log = LoggerFactory.getLogger(RoleHelper.class);
     private RoleHelper roleHelper = new RoleHelper();
 
     public UserDto buildDto(User user) {

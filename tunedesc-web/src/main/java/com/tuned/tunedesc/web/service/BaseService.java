@@ -5,8 +5,8 @@ import com.tuned.tunedesc.web.exception.SequenceException;
 
 public interface BaseService<T> {
 
-    public ResponseDto saveDocument(T t) throws SequenceException;
+    ResponseDto saveDocument(T t) throws SequenceException;
 
-    public ResponseDto findAllDocument();
+    ResponseDto findAllDocument();
 
 }

@@ -8,6 +8,7 @@ import com.tuned.tunedesc.web.dto.UserDto;
 import com.tuned.tunedesc.web.helper.UserHelper;
 import com.tuned.tunedesc.web.repository.SequenceIdRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,8 +29,9 @@ public class UserServiceImpl extends BaseServiceImpl<UserDto, User> implements U
     @Override
     public AccountDto activete(long id) {
         AccountDto accountDto = new AccountDto();
-
-        if (userRepository.exists(id)) {
+        User user = new User();
+        user.setId(id);
+        if (userRepository.exists(Example.of(user))) {
             User user1 = userRepository.findByUserId(id);
             user1.setEnabled(true);
             user1.setCredentialsNonExpired(true);

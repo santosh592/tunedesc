@@ -1,12 +1,11 @@
 package com.tuned.tunedesc.authserver.config;
 
+import com.tuned.tunedesc.common.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.access.expression.method.MethodSecurityExpressionHandler;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -29,6 +28,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .getLogger(SecurityConfig.class);
     @Autowired
     private MongoUserDetailsService userDetailsService;
+
+    @Autowired
+    private UserRepository userRepository;
 
 
     @Autowired
@@ -100,6 +102,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+
 
 
     @EnableGlobalMethodSecurity(prePostEnabled = true, jsr250Enabled = true, proxyTargetClass = true)

@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "barha.authClientSettings")
+//@ConfigurationProperties(prefix = "barha.authClientSettings")
 public class TunedescResourceConfig {
     private String id;
     private String secretkey;

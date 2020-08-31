@@ -5,9 +5,9 @@ package com.tuned.tunedesc.common.visitor;
 public interface Visitable {
 
 
-    public void accept(BaseVisitor visitor);
+    void accept(BaseVisitor visitor);
 
-    public Object getVisitor();
+    Object getVisitor();
 
 
 }

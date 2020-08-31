@@ -1,5 +1,24 @@
+buildscript {
+    repositories { mavenCentral() }
+}
+
+plugins {
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+
+}
+
 description = 'tunedesc-configurations'
+group = 'com.tuned.tunedesc'
+
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+}
+bootJar {
+    enabled = false
+}
 
+jar {
+    enabled = true
 }

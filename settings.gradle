@@ -1,15 +1,15 @@
 rootProject.name = 'tunedesc-parent'
-include ':tunedesc-web'
-include ':tunedesc-oauthserver'
-include ':tunedesc-configurations'
-include ':tunedesc-common'
+include 'tunedesc-web'
+include 'tunedesc-oauthserver'
+include 'tunedesc-configurations'
+include 'tunedesc-common'
 
 
 
 
-project(':tunedesc-web').projectDir = "$rootDir/tunedesc-web" as File
-project(':tunedesc-oauthserver').projectDir = "$rootDir/tunedesc-oauthserver" as File
-project(':tunedesc-configurations').projectDir = "$rootDir/tunedesc-configurations" as File
-project(':tunedesc-common').projectDir = "$rootDir/tunedesc-common" as File
+/*project('tunedesc-web').projectDir = "$rootDir/tunedesc-web" as File
+project('tunedesc-oauthserver').projectDir = "$rootDir/tunedesc-oauthserver" as File
+project('tunedesc-configurations').projectDir = "$rootDir/tunedesc-configurations" as File
+project('tunedesc-common').projectDir = "$rootDir/tunedesc-common" as File*/
 
 
