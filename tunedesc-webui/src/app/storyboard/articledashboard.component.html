@@ -1,0 +1,143 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg  navbar-light bg-light" role="navigation">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/title-logo.png" width="80" height="40" class="d-inline-block align-top" alt="">
+    </a>
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <h1 class="display-4">@{{posttype}}</h1>
+            </li>
+
+            <li>
+                <form class="form-inline ml-auto">
+                    <div class="md-form col-lg-8 my-7">
+                        <input class="form-control form-group-lg input-lg" type="text" placeholder="Search"
+                            aria-label="Search">
+                    </div>
+                    <button class="btn btn-info  my-0 ml-sm-6 active" type="submit">Search</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+    <ng-template [ngIf]="login">
+        <ul class="navbar-nav ml-auto btn-group">
+            <button type="button " class="btn btn-raised btn-info active nav-item" (click)="goToLogin()">
+                LOGIN
+            </button>
+            <button type="button " class="btn btn-raised btn-info active nav-item" (click)="goToSignUp()">
+                SIGNUP
+            </button>
+        </ul>
+
+    </ng-template>
+
+    <ng-template [ngIf]="user">
+        <div class="navbar-right">
+
+            <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+
+                <i class="fa fa-user" style="font-size:30px;" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu">
+                <a class="dropdown-item" (click)=goToCreateEvents()>{{user}}</a>
+                <li>
+                    <a (click)=goToCreateEvents()>
+                        <i class="fa fa-sign-out"></i>POST ARTICLE
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-cog"></i> ACCOUNT
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a (click)=removeAccessTokenFromCache()>
+                        <i class="fa fa-sign-out"></i> SIGNOUT
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </ng-template>
+
+
+    <!-- /.navbar-collapse -->
+
+    <!-- /.container -->
+</nav>
+
+<div class="" id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row row-stat">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="card mb-3" style="width: 50rem;">
+                            <a (click)=goToCreateEvents()> 
+                            <div class="card-header display-3">
+                                Top story
+                            </div>
+                            <img class="card-img-top" src="assets/img/title-logo.png" alt="Card image cap">
+                            <div class="card-body">
+                              <h3 class="card-title display-3">{{topstory.title}}</h3>
+                              <p class="card-text">{{topstory.story}}</p>
+                              <p class="card-text"><small class="text-muted">Last updated {{diffTimeUpdated}} mins ago</small></p>
+                            </div>
+                            </a>
+                          </div>
+
+                    </div>
+                    <div class="col-md-1">
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card" style="width: 30em;">
+                            <div class="card-header display-3">
+                                Featured
+                            </div>
+                            <ul class="list-group list-group-flush" *ngFor="let story of userstories">
+                                <li class="list-group-item ">{{story.story}}</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="container-fluid">
+                <div class="row row-stat">
+                    <div class="col-sm-12">
+                        <div class="row">
+
+                            <div class="col-md-2">
+                                <div class="card" style="width: 57em;">
+                                    <div class="card-header display-3">
+                                        Latest
+                                    </div>
+                                    <ul class="list-group list-group-flush" *ngFor="let story of userstories">
+                                        <li class="list-group-item ">{{story.story}}</li>
+                                       
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>

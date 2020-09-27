@@ -1,10 +1,10 @@
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg  navbar-light bg-light" role="navigation">
+<nav class="navbar navbar-expand-lg  navbar-light" style="background-color: #FEFDFD;" role="navigation">
 
     <!-- Brand and toggle get grouped for better mobile display -->
 
     <a class="navbar-brand" href="#">
-        <img src="assets/img/title-logo.png" width="80" height="40" class="d-inline-block align-top" alt="">
+        <img src="assets/img/title-logo.png" width="100" height="50" class="d-inline-block align-top" alt="">
     </a>
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -15,51 +15,43 @@
 
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div  class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-       
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-            <ul class="nav nav-pills">
-                <li class="nav-item">
 
-                    <a routerLink="/login" href="#" class="nav-link btn-primary">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link btn-primary" (click)="goToStartup()">Startup</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link btn-primary" (click)="goToBusiness()">Business</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link btn-primary" (click)="goToTech()">Technology</a>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
 
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link btn-primary" (click)="goToScience()">Science</a>
+            </li>
+            <li class="nav-item" *ngFor="let content of typeOfPosts; let i = index">
+                <a type="button" (click)="goToSpecificType(content.type)" class="nav-link btn btn-info active">{{content.type}}</a>
+            </li>
 
-                </li>
-            </ul>
+        </ul>
     </div>
-    <div class="navbar-right col-2">
-        <ul *ngIf='login' class="nav navbar-nav  nav-pills">
 
-                <li class="float-left nav-item ">
-                    <a *ngIf="!userdetails.username" class="btn btn-info " (click)="goToLogin()">LOGIN</a>
-                </li>
-                <li class="nav-item">
-                    <a *ngIf="!userdetails.username" class="btn btn-info" (click)="goToSignUp()">SIGNUP</a>
-                </li>
-    
-            </ul>
-    </div>
-        <div class="navbar-right" *ngIf="userdetails.username">
+    <ng-template [ngIf]="!login">
+        <ul class="navbar-nav ml-auto btn-group">
+            <button type="button "class="btn btn-raised btn-info active nav-item" (click)="goToLogin()">
+              LOGIN 
+            </button>
+            <button type="button "class="btn btn-raised btn-info active nav-item" (click)="goToSignUp()">
+              SIGNUP
+            </button>
+        </ul>
+        
+    </ng-template>
+
+    <ng-template [ngIf]="login">
+        <div class="navbar-right">
 
             <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
-                {{userdetails.username}}
                 
+                <i class="fa fa-user" style="font-size:30px;" aria-hidden="true"></i>
             </a>
             <ul class="dropdown-menu">
+                <a class="dropdown-item" (click)=goToCreateEvents()>{{user}}</a>
                 <li>
-                    <a *ngIf="userdetails.username" (click)=goToCreateEvents()>
+                    <a (click)=goToCreateEvents()>
                         <i class="fa fa-sign-out"></i>POST ARTICLE
                     </a>
                 </li>
@@ -77,8 +69,8 @@
 
             </ul>
         </div>
+    </ng-template>
 
-    
     <!-- /.navbar-collapse -->
 
     <!-- /.container -->

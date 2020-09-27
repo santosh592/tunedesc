@@ -3,6 +3,7 @@ import { Router } from '@angular/router'
 import { AutheticationService } from '../service/authentication.service'
 import { ContentPublishService } from '../service/contentpublishpanel.service';
 import { Input } from '@angular/core';
+import { User } from '../model/user';
 
 
 
@@ -21,6 +22,8 @@ export class MediumeditorComponent implements AfterViewInit, OnInit {
   userdetails: any;
   contenttype: string;
   userdata = {};
+  @Input()
+    user:string=null;
   // authenticationService: AutheticationService;
 
 
@@ -67,10 +70,13 @@ export class MediumeditorComponent implements AfterViewInit, OnInit {
 
 
   ngOnInit(): void {
-    this.authenticationService.getUserDetails(localStorage.getItem('token')).subscribe((data: any) => {
-      this.userdetails = data.resposeobject;
+    try {
 
-    });
+      this.user = localStorage.getItem('username');
+     
+  }catch (error) {
+    console.log("Did not get respose for userdetails")
+}
     this.contenttype = localStorage.getItem('posttype')
   }
 
@@ -79,9 +85,10 @@ export class MediumeditorComponent implements AfterViewInit, OnInit {
 
     this.post = this.editor.origElements.innerText;
 
-    this.contentpublishservice.publishContent(this.post, this.title, this.userdetails.id, this.contenttype).subscribe((data: any) => {
+    this.contentpublishservice.publishContent(this.post, this.title, this.userdetails["id"], this.contenttype).subscribe((data: any) => {
 
       this.userdata = data; console.log(data);
+      
 
       console.log(data.resposeobject.id)
       if (data.resposeobject.id != null) {

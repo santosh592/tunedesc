@@ -1,6 +1,6 @@
-import{Component, OnInit}from '@angular/core';
-import {Router}from '@angular/router';
-import {AutheticationService}from '../service/authentication.service'
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AutheticationService } from '../service/authentication.service'
 
 
 
@@ -17,8 +17,8 @@ export class DashboardComponent implements OnInit {
 
 
     userdetails = {};
-    
-    
+
+
 
     constructor(private router: Router, private authenticationService: AutheticationService) { }
 
@@ -33,28 +33,28 @@ export class DashboardComponent implements OnInit {
         });
     }
 
-    
-    goToCreateEvents() {
-        var username=this.userdetails["username"];
 
-        localStorage.setItem('userId',this.userdetails["id"]);
+    goToCreateEvents() {
+        var username = this.userdetails["username"];
+
+        localStorage.setItem('userId', this.userdetails["id"]);
         console.log(username)
-        if(username!=null){
-        this.router.navigate(['/createpost'])
-        }else{
+        if (username != null) {
+            this.router.navigate(['/createpost'])
+        } else {
 
 
 
         }
     }
-    logout(){
+    logout() {
 
         localStorage.removeItem('token');
         this.router.navigate(['/'])
     }
-    loginpage(){
+    loginpage() {
 
-      
+
         this.router.navigate(['/login'])
     }
 

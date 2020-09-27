@@ -1,8 +1,8 @@
-import{Component, Input, OnInit}from '@angular/core';
-import {Router}from '@angular/router';
-import {FormGroup, FormBuilder, Validators}from '@angular/forms';
-import {ContentPublishService } from '../service/contentpublishpanel.service';
-import {AutheticationService }from '../service/authentication.service'
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ContentPublishService } from '../service/contentpublishpanel.service';
+import { AutheticationService } from '../service/authentication.service'
 
 
 
@@ -23,8 +23,19 @@ export class PostCreateComponent implements OnInit {
     userdetails = {};
 
     @Input()
-    
     contenttype: string;
+    @Input()
+    username:string
+
+    @Input()
+    typeOfPosts:any=[]
+    @Input()
+    typeList:any=[]
+
+    @Input()
+    user:string
+
+
     constructor(private router: Router, private createpostservice: ContentPublishService,
         private authenticationService: AutheticationService) {
 
@@ -35,25 +46,40 @@ export class PostCreateComponent implements OnInit {
             this.postTypeList = data;
             console.log(data);
             console.log(this.postTypeList);
+            this.typeOfPosts=this.postTypeList["listOfobjects"]
+            this.typeList=this.postTypeList["type"]
 
 
         });
         this.authenticationService.getUserDetails(localStorage.getItem('token')).subscribe((data: any) => {
             this.userdetails = data.resposeobject;
             console.log(data);
-
+            this.username=this.userdetails["username"]
+            
         });
-    }
 
+        try {
 
-
-    goToCreatePost(contentType:string) {
-       
-        localStorage.setItem('posttype', contentType)
-        this.router.navigate(['/app-mediumeditor'])
+            this.user = localStorage.getItem('username');
+            if (this.user != null) {
+               
+            }
+        }
+        catch (error) {
+            console.log("Did not get respose for userdetails")
         }
 
     }
+
+
+
+    goToCreatePost(contentType: string) {
+
+        localStorage.setItem('posttype', contentType)
+        this.router.navigate(['/app-mediumeditor'])
+    }
+
+}
 
 
 

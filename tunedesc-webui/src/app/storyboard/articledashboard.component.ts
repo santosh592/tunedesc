@@ -7,56 +7,57 @@ import { AutheticationService } from '../service/authentication.service';
 
 @Component({
     moduleId: module.id,
-    selector: 'navigate',
-    templateUrl: 'navigate.component.html',
+    selector: 'articledashboard',
+
+    templateUrl: 'articledashboard.component.html',
+    styleUrls: ['./articledashboard.component.scss']
 
 })
 
 
-export class NavigateComponent implements OnInit {
+export class ArticleDashboardComponent implements OnInit {
     postTypeList = {};
     userdetails = {};
-    @Input()
-    typeOfPosts: any = []
-    @Input()
-    typeList: any = []
+    posttype: string;
+    login: boolean = true;
+    activeClass: String;
 
     @Input()
-    login: boolean = false;
-    activeClass: string;
-
-
-    user: string = null;
-
+    username: string = null;
     //@Input()
     //private creatAdService: CreateAdService
+    userstories=[
+            {"story":"this is first story"},
+            {"story":"this is second story"},
+            {"story":"this is third story"},
+            {"story":"this is 4th story"},
+            {"story":"this is 5th story"},
+            {"story":"this is 6th story"}
+    
+    ]
+
+    featured=[
+        {"story":"this is first story"},
+        {"story":"this is second story"},
+        {"story":"this is third story"},
+        {"story":"this is 4th story"},
+        {"story":"this is 5th story"},
+        {"story":"this is 6th story"}
+
+    ]
+    topstory={"title":"snowflake startup goes ipo","story":"This is top story",
+                "views":100,"storyPostedTime":"2020-09-17T00:00:00"}
+
+    diffTimeUpdated:any=0
+
+    @Input()
+    user: string = null;
     constructor(private router: Router, private createpostservice: CreatePostService, private authenticationService: AutheticationService) {
 
     }
 
     ngOnInit(): void {
 
-        this.createpostservice.getPostTypeList().subscribe((data: any) => {
-            this.postTypeList = data;
-            console.log(this.postTypeList);
-            this.typeOfPosts = this.postTypeList["listOfobjects"]
-            //this.typeList=this.typeOfPosts["type"]
-            // console.log(this.typeList)
-            //throw new Error("Method not implemented.");
-        })
-
-        this.authenticationService.getUserDetails(localStorage.getItem('token')).subscribe((data: any) => {
-            this.userdetails = data.resposeobject;
-            console.log(data);
-            try {
-
-                localStorage.setItem('username', this.userdetails["username"]);
-            } catch (error) {
-                console.log("Did not get respose for userdetails")
-            }
-
-
-        })
 
         try {
 
@@ -68,6 +69,12 @@ export class NavigateComponent implements OnInit {
         catch (error) {
             console.log("Did not get respose for userdetails")
         }
+
+        this.posttype = localStorage.getItem("posttype")
+        let currentDate:number=new Date().getTime()
+        let storyUpdatedTime:number=new Date(this.topstory.storyPostedTime).getTime()
+         this.diffTimeUpdated =(currentDate-storyUpdatedTime)/60*60*60
+        
     }
 
 
@@ -99,13 +106,13 @@ export class NavigateComponent implements OnInit {
 
     removeAccessTokenFromCache() {
         localStorage.removeItem('token')
-        localStorage.removeItem('username')
         this.login = true
         this.user = null
+
     }
 
     goToSpecificType(posttype: string) {
-        this.router.navigate(['/article/specifictype/' + posttype])
+        this.router.navigate(['specificcontent/' + posttype])
         localStorage.setItem('posttype', posttype)
     }
 }

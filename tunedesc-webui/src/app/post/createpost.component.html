@@ -1,9 +1,9 @@
 <!-- REGISTRATION FORM -->
 <div class="container mt-3">
-    <div class="logo">Hi {{userdetails.username}}, Please choose type of article you are publishing today</div>
+    <div class="logo">{{user}}, Choose type of story</div>
     <!-- Main Form -->
     <div class="row">
-        <div class="col-sm-4" *ngFor="let content of postTypeList.listOfobjects; let i = index">
+        <div class="col-sm-4" *ngFor="let content of typeOfPosts; let i = index">
 
 
 
@@ -16,16 +16,40 @@
                     <a (click)="goToCreatePost(content.type)" class="btn btn-success">Go somewhere</a>
                 </div>
             </div> -->
-            <div class="card-deck">
+            <!-- <div class="card-deck">
             <div class="card">
-                <a (click)="goToCreatePost(content.type)"> <img src={{content.imagelocation}} class="card-img-top" alt="..." style="width:400px;height:200px;"></a>
+                <a (click)="goToCreatePost(content.type)"> <img src={{content.imagelocation}} class="card-img-top" alt="..." style="width:400px;height:200px;">
                 <div class="card-body">
                   <h5 class="card-title">{{content.type}}</h5>
-                  <p class="card-text">{{content.description}}</p>
+                <p class="card-text">{{content.description}}</p>
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
+            </a>
               </div>
-              </div>
+              </div> -->
+            <div class="card text-white bg-dark mb-2" style="max-width: 15rem;">
+                <!-- <div class="card-header">Header</div> -->
+                <a (click)="goToCreatePost(content.type)">
+                    <div class="card-body">
+                        <h5 class="card-title"><br> #{{content.type}}</h5>
+                        <p class="card-text"> <br> <br> <br> </p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+        <div class="col-sm-4" style="max-width: 50rem;">
+            <div class="card text-white bg-dark mb-3" style="max-width: 15rem;">
+                <img class="card-img" src="assets/img/unnamed.png" alt="Card image">
+                <div class="card-img-overlay">
+                    <a>
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                            <p class="card-text"> <br> <br> <br> </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 

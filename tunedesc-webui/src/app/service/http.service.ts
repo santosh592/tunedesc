@@ -22,6 +22,7 @@ export class HttpService {
     httpPost(body: any, restEndPoint: string, port: string, usertoken: string): Observable<any> {
         let myHeaders = new Headers();
         myHeaders.append('Content-Type', 'application/json');
+        myHeaders.append("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
 
 
         var token = "?access_token=" + usertoken
@@ -44,16 +45,23 @@ export class HttpService {
     httpGet(restEndPoint: string, port: string, usertoken: string): Observable<any> {
 
         let myHeaders = new Headers();
+       // myHeaders.append("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
 
         var token = "?access_token=" + usertoken
-        let options1 = new RequestOptions({ headers: myHeaders });
+        let options1 =null
         console.log(this.url + ':' + port + restEndPoint + token);
 
-        if (typeof usertoken) {
+        if (typeof usertoken != 'undefined' && usertoken) {
+            myHeaders.append("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
+            let options1 = new RequestOptions({ headers: myHeaders });
+            console.log("I am here..")
             return this.http.get(this.url + ':' + port + restEndPoint + token, options1).map((res: Response) => res.json())
                 .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
         } else
-            return this.http.get(this.url + ':' + port + restEndPoint + token, options1).map((res: Response) => res.json())
+        console.log("I am here also..")
+        console.log(restEndPoint)
+         options1 = new RequestOptions({ headers: myHeaders });
+            return this.http.get(this.url + ':' + port + restEndPoint, options1).map((res: Response) => res.json())
                 .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 
     }
@@ -63,6 +71,7 @@ export class HttpService {
     httpAuthPost(username: string, password: string, restEndPoint: string, port: string): Observable<any> {
         let myheader = new Headers();
         myheader.append('Content-Type', 'application/json');
+        myheader.append("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
 
 
 

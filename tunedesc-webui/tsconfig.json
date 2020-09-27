@@ -18,13 +18,10 @@
       "es2018",
       "dom"
     ],
-	"types": [
+    "types": [
       "jasmine",
       "node"
     ]
-  },
-  "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
   }
+  
 }

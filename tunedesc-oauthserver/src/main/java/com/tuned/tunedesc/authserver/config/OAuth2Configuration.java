@@ -36,6 +36,9 @@ public class OAuth2Configuration extends
     @Autowired
     private MongoUserDetailsService userDetailService;
 
+    @Autowired
+    SecurityConfig securityConfig;
+
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security)
@@ -54,7 +57,7 @@ public class OAuth2Configuration extends
         clients.inMemory().withClient("tunedesc")
                 .scopes("read", "write").authorities("USER", "ADMIN")
                 .authorizedGrantTypes("refresh_token", "password")
-                .secret("txsLnIXH1FBAHhCppqAnZcESq1Gku3df")
+                .secret(securityConfig.passwordEncoder().encode("txsLnIXH1FBAHhCppqAnZcESq1Gku3df"))
                 .resourceIds("oauth2-resource")
                 .accessTokenValiditySeconds(3600);
     }

@@ -11,13 +11,16 @@ import { ActivateComponent } from './activate/activate.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { MediumeditorComponent } from './mediumeditor/mediumeditor.component';
 import { PublishedConfirmComponent } from './mediumeditor/publishedconfirm.component';
+import { ArticleDashboardComponent } from './storyboard/articledashboard.component';
+import { NgModule } from '@angular/core';
 
 
 
 
-const appRoutes: Routes = [
+export const routes: Routes = [
 
     {
+        // path: 'app', component: AppComponent,
         path: 'app', component: AppComponent,
 
 
@@ -76,6 +79,12 @@ const appRoutes: Routes = [
         component: PublishedConfirmComponent
 
     },
+    {
+        path: 'article/specifictype/startup',
+        component: ArticleDashboardComponent
+
+    },
+
 
 
     // otherwise redirect to app
@@ -85,6 +94,7 @@ const appRoutes: Routes = [
 ];
 
 
-export const routing = RouterModule.forRoot(appRoutes, { enableTracing: true });
+
+export const routing = RouterModule.forRoot(routes, { enableTracing: true });
 
 

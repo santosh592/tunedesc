@@ -3,6 +3,7 @@ import { AutheticationService } from '../service/authentication.service'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, Input } from '@angular/core';
 import 'rxjs/add/operator/catch';
+import { ErrorMessages } from '../constants/errormessages';
 
 @Component({
     moduleId: module.id,
@@ -40,15 +41,15 @@ export class LoginComponent {
            // console.log(data.access_token);
             console.log(data);
             if (data.access_token != null) {
-                this.router.navigate(['/dashboard'])
+                this.router.navigate(['/app'])
                 localStorage.setItem('token', data.access_token);
             }
         },
             (error) => {
                 this.error = error;
                 console.log(error)
-                this.invalidcredit = 'Incorrect username or password'
-                if (this.error = "invalid_grant") this.invalidcredit
+                
+                if (this.error = ErrorMessages.INVALID_GRANT) this.invalidcredit=ErrorMessages.INCORRECT_USERDETAILS
             }
 
 

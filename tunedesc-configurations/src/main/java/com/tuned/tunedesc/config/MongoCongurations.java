@@ -57,7 +57,7 @@ public class MongoCongurations extends AbstractMongoClientConfiguration {
 
     @Override
     public MongoClient mongoClient() {
-        return MongoClients.create("mongodb://localhost:27017/?replicaSet=rs0&w=majority");
+        return MongoClients.create("mongodb://localhost:27017/");
     }
 
     @Bean
