@@ -1,9 +1,9 @@
-/*!
+/* !
  * Start Bootstrap - Creative v3.3.7+1 (http://startbootstrap.com/template-overviews/creative)
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
-html,
+/* html,
 body {
   height: 100%;
   width: 100%;
@@ -61,9 +61,9 @@ aside {
 }
 .no-padding {
   padding: 0;
-}
+} */
 
-.navbar-default {
+/* .navbar-default {
   background-color: whitesmoke;
   border-color: rgba(34, 34, 34, 0.05);
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
@@ -156,8 +156,8 @@ header {
   text-align: center;
   color: white;
   
-}
-header .header-content {
+} */
+/* header .header-content {
   position: relative;
   text-align: center;
   padding: 100px 15px 100px;
@@ -343,10 +343,10 @@ fieldset[disabled] .btn-default.active {
 }
     .btn-primary:hover,
     .btn-primary:focus,
-    .btn-primary.focus,
+    .btn-primary.focus, */
 
     
-.btn-primary:active,
+/* .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
   background-image: none;
@@ -526,7 +526,7 @@ image-intro {
   padding: 0px;
   margin: 0px;
   line-height: 35px;
-  cursor: pointer;
+  cursor: pointer; */
   /*    
     .collapsed{
        .arrow:before{
@@ -540,7 +540,7 @@ image-intro {
             }
      }
 */
-}
+/* }
 .nav-side-menu ul :not(collapsed) .arrow:before,
 .nav-side-menu li :not(collapsed) .arrow:before {
   font-family: FontAwesome;
@@ -689,7 +689,7 @@ body {
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
     margin-right: -250px;
-}
+} */
 
 /* Sidebar Styles */
 
@@ -891,7 +891,7 @@ body {
 ::-moz-placeholder { /* Firefox 19+ */
     font-size: 13px !important;
 }
-
+/* 
 textarea {
   width: 300px;
   height: 100px;
@@ -900,4 +900,4 @@ textarea {
   font-weight: bold;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   border: 1px solid black;
- }
+ } */

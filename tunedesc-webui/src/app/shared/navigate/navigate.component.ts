@@ -1,14 +1,17 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CreatePostService } from '../service/createpost.service';
-import { AutheticationService } from '../service/authentication.service';
+import { CreatePostService } from 'src/app/service/createpost.service';
+
+import { AutheticationService } from 'src/app/service/authentication.service';
+import { ErrorMessages } from 'src/app/constants/errormessages';
 
 
 @Component({
     moduleId: module.id,
-    selector: 'navigate',
+    selector: 'app-navigate',
     templateUrl: 'navigate.component.html',
+    styleUrls: ['./navigate.component.scss']
 
 })
 
@@ -27,6 +30,14 @@ export class NavigateComponent implements OnInit {
 
 
     user: string = null;
+
+    @Input() username: string;
+    @Input() password: string;
+
+    authdata = {};
+
+    invalidcredit: string;
+    error: string;
 
     //@Input()
     //private creatAdService: CreateAdService
@@ -107,6 +118,37 @@ export class NavigateComponent implements OnInit {
     goToSpecificType(posttype: string) {
         this.router.navigate(['/article/specifictype/' + posttype])
         localStorage.setItem('posttype', posttype)
+    }
+
+
+
+    goToforgetpwd() {
+        this.router.navigate(['/forgetpassword']);
+    }
+   
+
+
+    loginAuthentication() {
+
+
+        this.authenticationService.getauthToken(this.username, this.password).subscribe(data => {
+            //this.authdata = data.access_token;
+            // console.log(data.access_token);
+            console.log(data);
+            if (data.access_token != null) {
+                this.router.navigate(['/app'])
+                localStorage.setItem('token', data.access_token);
+            }
+        },
+            (error) => {
+                this.error = error;
+                console.log(error)
+
+                if (this.error = ErrorMessages.INVALID_GRANT) this.invalidcredit = ErrorMessages.INCORRECT_USERDETAILS
+            }
+
+
+        )
     }
 }
 

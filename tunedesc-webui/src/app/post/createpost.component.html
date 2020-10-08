@@ -1,55 +1,45 @@
-<!-- REGISTRATION FORM -->
-<div class="container mt-3">
-    <div class="logo">{{user}}, Choose type of story</div>
-    <!-- Main Form -->
+<app-navigate></app-navigate>
+<div class="container-fluid mt-3 bk-gradient">
+    <div class="logo text-white">PICK A TOPIC</div>
+
     <div class="row">
         <div class="col-sm-4" *ngFor="let content of typeOfPosts; let i = index">
+            <div class="card card-image "
+                style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg);">
 
-
-
-
-            <!-- <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-                <div class="card-header">{{content.type}}</div>
-                <div class="card-body">
-                    <h5 class="card-title">{{content.type}}</h5>
-                    <p class="card-text">Startup,Business,science,technology,fiction,photography,events,automobile any content you want to write</p>
-                    <a (click)="goToCreatePost(content.type)" class="btn btn-success">Go somewhere</a>
-                </div>
-            </div> -->
-            <!-- <div class="card-deck">
-            <div class="card">
-                <a (click)="goToCreatePost(content.type)"> <img src={{content.imagelocation}} class="card-img-top" alt="..." style="width:400px;height:200px;">
-                <div class="card-body">
-                  <h5 class="card-title">{{content.type}}</h5>
-                <p class="card-text">{{content.description}}</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </a>
-              </div>
-              </div> -->
-            <div class="card text-white bg-dark mb-2" style="max-width: 15rem;">
-                <!-- <div class="card-header">Header</div> -->
-                <a (click)="goToCreatePost(content.type)">
-                    <div class="card-body">
-                        <h5 class="card-title"><br> #{{content.type}}</h5>
-                        <p class="card-text"> <br> <br> <br> </p>
+                <!-- Content -->
+                <div class="text-info text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                    <div>
+                        <h5 class="pink-text"><i class="fas fa-chart-pie"></i> {{content.type}}</h5>
+                        <h3 class="card-title pt-2"><strong>This is the card title</strong></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam,
+                            voluptatem,
+                            optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum
+                            dignissimos.
+                            Odit sed qui, dolorum!.</p>
+                        <a class="btn btn-pink" (click)="goToCreatePost(content.type)"><i class="fas fa-clone left"></i> Take Notes</a>
                     </div>
-                </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+
+            <div class="card card-image" style="background-image: url(assets/img/unnamed.png);">
+
+                <!-- Content -->
+                <div class="text-info text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                    <div>
+                        <h5 class="pink-text"><i class="fas fa-chart-pie"></i> </h5>
+                        <h3 class="card-title pt-2"><strong>This is the card title</strong></h3>
+                        <p>Topic Not in the List??</p>
+                        <a class="btn btn-pink"><i class="fas fa-clone left">ADD TOPIC HERE</i></a>
+                    </div>
+                </div>
+
             </div>
 
-        </div>
-        <div class="col-sm-4" style="max-width: 50rem;">
-            <div class="card text-white bg-dark mb-3" style="max-width: 15rem;">
-                <img class="card-img" src="assets/img/unnamed.png" alt="Card image">
-                <div class="card-img-overlay">
-                    <a>
-                        <div class="card-body">
-                            <h5 class="card-title"></h5>
-                            <p class="card-text"> <br> <br> <br> </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
 

@@ -17,18 +17,16 @@ import { AutheticationService } from '../service/authentication.service'
 
 export class PostCreateComponent implements OnInit {
 
-
-
     postTypeList = {};
     userdetails = {};
 
     @Input()
-    contenttype: string;
+    contenttype: string
     @Input()
     username:string
 
     @Input()
-    typeOfPosts:any=[]
+    typeOfPosts:any=[{"type":"STARTUP"},{"type":"DATASCIENCE"},{"type":"DEVELOPER"}]
     @Input()
     typeList:any=[]
 

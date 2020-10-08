@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 //import { AutheticationService } from './service/authentication.service';
@@ -6,10 +6,11 @@ import { NgForm } from '@angular/forms';
 @Component({
   moduleId: module.id,
   selector: 'my-app',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  encapsulation: ViewEncapsulation.None,
 })
 
-export class AppComponent {
+export class AppComponent  {
   login: boolean = true;
   token: boolean;
 

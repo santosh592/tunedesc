@@ -1,10 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SignupComponent } from './signup/signup.component';
-import { NavigateComponent } from './navigate/navigate.component';
-import { LoginComponent } from './login/login.component';
+import { NavigateComponent } from './shared/navigate/navigate.component';
 import { ForgetPwdComponent } from './login/forgetpwd.component';
 import { PostCreateComponent } from './post/createpost.component';
 import { ActivateComponent } from './activate/activate.component';
@@ -12,7 +10,7 @@ import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { MediumeditorComponent } from './mediumeditor/mediumeditor.component';
 import { PublishedConfirmComponent } from './mediumeditor/publishedconfirm.component';
 import { ArticleDashboardComponent } from './storyboard/articledashboard.component';
-import { NgModule } from '@angular/core';
+import { ReaderBoardComponent } from './storyboard/readerboard.component';
 
 
 
@@ -35,17 +33,11 @@ export const routes: Routes = [
                     path: '',
                     component: HomeComponent,
                     outlet: 'body1'
-                },
-
+                }
             ]
     },
 
     { path: '', redirectTo: '/app', pathMatch: 'full' },
-    {
-        path: 'login',
-        component: LoginComponent,
-
-    },
     {
         path: 'signup',
         component: SignupComponent
@@ -55,10 +47,6 @@ export const routes: Routes = [
         component: ForgetPwdComponent
     },
     {
-        path: 'dashboard',
-        component: DashboardComponent
-
-    }, {
 
         path: 'createpost',
         component: PostCreateComponent
@@ -84,8 +72,11 @@ export const routes: Routes = [
         component: ArticleDashboardComponent
 
     },
+    {
+        path: 'readerboard',
+        component: ReaderBoardComponent
 
-
+    },
 
     // otherwise redirect to app
     {

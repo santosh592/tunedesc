@@ -1,29 +1,44 @@
-<!-- FORGOT PASSWORD FORM -->
-<div class="text-center" style="padding:50px 0">
-    <div class="logo">forgot password</div>
-    <!-- Main Form -->
-    <div class="login-form-1">
-        <form id="forgot-password-form" class="text-left">
-            <div class="etc-login-form">
-                <p>When you fill in your registered email address, you will be sent instructions on how to reset your
-                    password.</p>
-            </div>
-            <div class="login-form-main-message"></div>
-            <div class="main-login-form">
-                <div class="login-group">
-                    <div class="form-group">
-                        <label for="fp_email" class="sr-only">Email address</label>
-                        <input type="text" class="form-control" id="fp_email" name="fp_email"
-                               placeholder="email address">
+<div class="container-fluid bk-gradient">
+    <br><br>
+    <div class="row">
+
+        <div class="col-4">
+            <a href="#"><i class="fas fa-igloo text-white fa-4x"></i></a>
+        </div>
+        <div class="col-5">
+            <form class="form-horizontal" action='' method="POST">
+                <fieldset>
+                    <div id="legend">
+                        <legend class="text-white">Forget Password</legend>
                     </div>
+                    <div class="card">
+                    <div class="card-body">
+                      
+                        <!-- Material form register -->
+                        <form>
+                          <p class="h4 text-center py-4">Sign up</p>
+                    
+                          <!-- Material input text -->
+                          <div class="md-form">
+                            <i class="fa fa-mail prefix grey-text"></i>
+                            <input  type="text" id="materialFormCardNameEx" class="form-control">
+                            <label for="materialFormCardNameEx" class="font-weight-light">E-mail</label>
+                          </div>
+
+                    
+
+                   
+                    <div class="md-form">
+                        <!-- Button -->
+                        <div class="controls">
+                            <button  class="btn btn-info text-white">Submit</button>
+                        </div>
+                    </div>
+                    </form>
                 </div>
-                <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
             </div>
-            <div class="etc-login-form">
-                <p>already have an account? <a href="#">login here</a></p>
-                <p>new user? <a href="#">create new account</a></p>
-            </div>
-        </form>
+                </fieldset>
+            </form>
+        </div>
     </div>
-    <!-- end:Main Form -->
 </div>

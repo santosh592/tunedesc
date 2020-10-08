@@ -14,6 +14,13 @@ declare var MediumEditor: any;
 })
 
 export class PublishedConfirmComponent implements OnInit {
+  editor: any;
+  post: string;
+  title: string;
+  userdetails: any;
+  contenttype: string;
+  userdata = {};
+
   ngOnInit(): void {
     this.authenticationService.getUserDetails(localStorage.getItem('token')).subscribe((data: any) => {
       this.userdetails = data.resposeobject;
@@ -21,12 +28,7 @@ export class PublishedConfirmComponent implements OnInit {
     });
     this.contenttype = localStorage.getItem('posttype')
   }
-  editor: any;
-  post: string;
-  title: string;
-  userdetails: any;
-  contenttype: string;
-  userdata = {};
+
   // authenticationService: AutheticationService;
 
 

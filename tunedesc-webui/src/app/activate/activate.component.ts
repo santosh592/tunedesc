@@ -25,17 +25,10 @@ export class ActivateComponent {
 
 
     getid() {
-
         this.sub = this.router.params.subscribe(params => {
             this.id = +params['id'];
             console.log(this.id);
-
-
         });
-
-
-
-
 
     }
 
@@ -50,7 +43,5 @@ export class ActivateComponent {
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
-
-
 
 }

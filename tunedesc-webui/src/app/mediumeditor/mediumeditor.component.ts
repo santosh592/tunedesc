@@ -4,6 +4,8 @@ import { AutheticationService } from '../service/authentication.service'
 import { ContentPublishService } from '../service/contentpublishpanel.service';
 import { Input } from '@angular/core';
 import { User } from '../model/user';
+import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 
 
@@ -22,21 +24,26 @@ export class MediumeditorComponent implements AfterViewInit, OnInit {
   userdetails: any;
   contenttype: string;
   userdata = {};
+  
+ 
   @Input()
-    user:string=null;
+  user: string = null;
   // authenticationService: AutheticationService;
-
+  
+  tags: string[] = ['html', 'Angular'];
+  form: FormGroup;
 
   constructor(private router: Router, private contentpublishservice: ContentPublishService,
-    private authenticationService: AutheticationService, private changeDetectorRef: ChangeDetectorRef) {
+    private authenticationService: AutheticationService, private changeDetectorRef: ChangeDetectorRef,private fb: FormBuilder) {
 
   }
-  @ViewChild('editable', {
+  @ViewChild('container', {
     static: true
-  }) editable: ElementRef;
+  }) container: ElementRef;
   ngAfterViewInit(): void {
-
-    this.editor = new MediumEditor(this.editable.nativeElement, {
+    
+    this.editor = new MediumEditor(this.container.nativeElement, {
+      
       paste: {
         /* This example includes the default options for paste,
            if nothing is passed this is what it used */
@@ -44,7 +51,7 @@ export class MediumeditorComponent implements AfterViewInit, OnInit {
         cleanPastedHTML: true,
         cleanReplacements: [],
         cleanAttrs: ['class', 'style', 'dir', 'name'],
-        cleanTags: ['meta'],
+        cleanTags: ['spandium '],
         unwrapTags: []
       },
       toolbar: {
@@ -61,34 +68,50 @@ export class MediumeditorComponent implements AfterViewInit, OnInit {
         static: false,
         /* options which only apply when static is true */
         align: 'center',
-        sticky: false,
+        sticky: true,
         updateOnEmptySelection: false
       }
     });
-    this.changeDetectorRef.detectChanges
+     this.editor
+    
+    //this.changeDetectorRef.detectChanges
+  }
+  ngOnChanges(change) {
+    if (change.variable && change.variable.currentValue && this.editor) {
+      this.editor
+        .setContent(change.variable.currentValue);
+    }
   }
 
 
+
+
+
   ngOnInit(): void {
+    
     try {
 
       this.user = localStorage.getItem('username');
-     
-  }catch (error) {
-    console.log("Did not get respose for userdetails")
-}
+
+    } catch (error) {
+      console.log("Did not get respose for userdetails")
+    }
     this.contenttype = localStorage.getItem('posttype')
+
+    this.form = this.fb.group({
+      tag: [undefined],
+    });
   }
 
   publishContent(): void {
 
 
-    this.post = this.editor.origElements.innerText;
-
+    this.post = this.editor.origElements
+    console.log(this.post)
     this.contentpublishservice.publishContent(this.post, this.title, this.userdetails["id"], this.contenttype).subscribe((data: any) => {
 
       this.userdata = data; console.log(data);
-      
+
 
       console.log(data.resposeobject.id)
       if (data.resposeobject.id != null) {
@@ -98,20 +121,11 @@ export class MediumeditorComponent implements AfterViewInit, OnInit {
     });
 
   }
+  
+
+  
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 const BUTTONS = [
   'bold'

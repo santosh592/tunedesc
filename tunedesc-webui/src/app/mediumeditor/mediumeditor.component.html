@@ -1,37 +1,55 @@
-<div class="container mt-3 ">
-    <div class="logo">
-        <div class="col-12"> {{user}} ,start writing below when finished press publish,preview is beside
-            the text box
+<app-navigate></app-navigate>
+<div class="container-fluid bk-gradient">
+    <div class="jumbotron jumbotron-fluid bg-white content-height ">
+        <br>
+        <div class="row">
+            <br>
+
+            <div class="col-md-9">
+                <div class="d-flex flex-row">
+                    <div class="p-2"><a href="#" class="btn btn-info btn-lg active float-right" role="button"
+                            aria-pressed="true" (click)="publishContent()"><i class="fas fa-share"></i>SHARE My
+                            Notes</a></div>
+                    <div class="p-2"><a href="#" class="btn btn-info btn-lg active float-right" role="button"
+                            aria-pressed="true" (click)="publishContent()"><i class="fas fa-share"></i>SAVE My Notes</a>
+                    </div>
+                    <div class="p-2"><a href="#" class="btn btn-info btn-lg active float-right" role="button"
+                            aria-pressed="true" (click)="publishContent()"><i class="fas fa-edit"></i>EDIT</a></div>
+                </div>
+
+            </div>
+            <div class="col-md"></div>
+
 
         </div>
-    </div>
-    <div class="row">
-        <button class="btn btn-outline-primary btn-lg" (click)="publishContent()">publish </button>
-        <div class="col-sm"></div>
-        <!-- <div class="col-sm"></div> -->
-        <div class="col-5 alert alert-primary" role="alert">
-            Preview
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-6 my-1">
-            <label class="sr-only" for="inlineFormInputGroupUsername">TITLE</label>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">
-                        <h5>#{{contenttype}} &nbsp;&nbsp;</h5>
-                        <h4>#TITLE &nbsp;&nbsp;</h4>
+        <div class="row">
+
+            <div class="col-6 my-1">
+                <label class="sr-only" for="inlineFormInputGroupUsername">TITLE</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <h5 class="font-weight-bold text-info">#{{contenttype}} &nbsp;&nbsp;</h5>
+                        </div>
                     </div>
+
+
                 </div>
-                <input [(ngModel)]="title" type="text" class="form-control form-control-lg"
-                    id="inlineFormInputGroupUsername" placeholder="" style="font-weight: bold;">
+                <div class="md-form">
+                    <p class="text-black-50"><input [(ngModel)]="title" placeholder="#Title" type="text"
+                            id="inputPlaceholderEx" class="form-control form-control-lg" style="font-weight: bold;"></p>
+                    <label for="inputPlaceholderEx"></label>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row justify-content-center">
+        <div #container>
+            <p class="text-black-50">
+            <p>
 
-        <div #editable class="col-6" style="min-height: 85vh"></div>
-        <div *ngIf="editor" class="shadow col-6" [innerHTML]="editor.elements[0].innerHTML"></div>
+        </div>
+
     </div>
+
+
 
 </div>

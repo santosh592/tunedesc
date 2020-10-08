@@ -11,9 +11,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { routing } from "./app.routing.module";
 import { HomeComponent } from './home/home.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SignupComponent } from './signup/signup.component';
-import { NavigateComponent } from './navigate/navigate.component';
+import { NavigateComponent } from './shared/navigate/navigate.component';
 import { HttpService } from './service/http.service';
 import { SignUpService } from './service/signup.service';
 import { LoginComponent } from './login/login.component';
@@ -27,10 +26,12 @@ import { CreatePostService } from './service/createpost.service';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { MediumeditorComponent } from './mediumeditor/mediumeditor.component';
 import { ArticleDashboardComponent } from './storyboard/articledashboard.component'
+import { ReaderBoardComponent } from './storyboard/readerboard.component'
 import { PublishedConfirmComponent } from './mediumeditor/publishedconfirm.component';
 import { SpecificcontentComponent } from './specificcontent/specificcontent.component';
 import { MediumEditorModule } from 'angular2-medium-editor';
 import { RouterModule } from '@angular/router';
+import { StoryPageHeaderComponent } from './shared/storypagenavigation/storypageheader.component';
 
 
 
@@ -43,6 +44,7 @@ import { RouterModule } from '@angular/router';
     HttpModule,
     MediumEditorModule,
     ReactiveFormsModule,
+    MediumEditorModule,
     routing
     //RouterModule.forRoot(routes, { useHash: true })
 
@@ -54,7 +56,6 @@ import { RouterModule } from '@angular/router';
   declarations: [
     AppComponent,
     HomeComponent,
-    DashboardComponent,
     SignupComponent,
     NavigateComponent,
     LoginComponent,
@@ -65,7 +66,9 @@ import { RouterModule } from '@angular/router';
     MediumeditorComponent,
     PublishedConfirmComponent,
     ArticleDashboardComponent,
-    SpecificcontentComponent
+    SpecificcontentComponent,
+    ReaderBoardComponent,
+    StoryPageHeaderComponent
 
   ],
   providers: [HttpService, SignUpService, ActivateService, AutheticationService, ContentPublishService, CreatePostService],
