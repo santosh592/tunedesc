@@ -4,7 +4,6 @@ import { User } from '../model/user';
 import { Observable } from 'rxjs/Rx';
 import { RestEndPoints } from '../constants/restendpoints';
 
-
 @Injectable()
 export class SignUpService {
 

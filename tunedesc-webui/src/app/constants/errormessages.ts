@@ -4,6 +4,4 @@ export class ErrorMessages {
 
     public static INVALID_GRANT="invalid_grant"
 
-
-
 }

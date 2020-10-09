@@ -8,7 +8,6 @@ import { RestEndPoints } from '../constants/restendpoints';
 @Injectable()
 export class ActivateService {
 
-
     constructor(private httpservice: HttpService) {
     }
 

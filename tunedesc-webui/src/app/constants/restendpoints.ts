@@ -5,8 +5,6 @@ export class RestEndPoints {
     public static USER_SIGNUP='/user/saveDocument';
     public static POSTS_CATEGORY='/post/content-type';
     public static SAVE_POST='/post/saveDocument';
-   // public static POSTS_CATEGORY='/post/businessType'
-    
    
    
     public static SAVE_CONTENT='/post/content';

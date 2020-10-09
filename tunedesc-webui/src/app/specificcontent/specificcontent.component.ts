@@ -11,32 +11,33 @@ import { AutheticationService } from '../service/authentication.service';
 export class SpecificcontentComponent implements OnInit {
   postTypeList = {};
   userdetails = {};
-  constructor(private router: Router, private createpostservice: CreatePostService, private authenticationService: AutheticationService) {
+  posttype: string;
+  constructor(private router: Router, private createpostservice: CreatePostService, private authenticationService: AutheticationService) { }
 
-  }
-
-
-  //create instance
-posttype:string;
   ngOnInit(): void {
 
-    this.createpostservice.getPostTypeList().subscribe((data: any) => {
-      this.postTypeList = data;
-      console.log(data);
-      console.log(this.postTypeList);
-
-      //throw new Error("Method not implemented.");
-    })
-
+    this.setPostTypeList()
+    this.setUserDetails()
+    this.setPostType
+  }
+  setUserDetails() {
     this.authenticationService.getUserDetails(localStorage.getItem('token')).subscribe((data: any) => {
       this.userdetails = data.resposeobject;
       console.log(data);
 
     })
+  }
+  setPostTypeList() {
+    this.createpostservice.getPostTypeList().subscribe((data: any) => {
+      this.postTypeList = data;
+      console.log(data);
+      console.log(this.postTypeList);
 
-    this.posttype=localStorage.getItem("posttype")
+    })
   }
 
-
+  setPostType() {
+    this.posttype = localStorage.getItem("posttype")
+  }
 
 }

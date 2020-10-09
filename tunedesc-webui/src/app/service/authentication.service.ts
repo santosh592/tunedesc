@@ -13,19 +13,14 @@ export class AutheticationService {
 
     }
 
-
     getauthToken(username: string, password: string): Observable<any> {
 
         return this.httpService.httpAuthPost(username, password, RestEndPoints.AUTH_TOKEN, '8090')
-
-
-
     }
 
     getUserDetails(token: string) {
 
         return this.httpService.httpGet(RestEndPoints.USER_DETAILS, '8080', token);
-
     }
 }
 

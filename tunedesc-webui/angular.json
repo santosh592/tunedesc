@@ -29,7 +29,6 @@
             ],
             "styles": [
               "src/styles.scss",
-              
               "node_modules/medium-editor/dist/css/medium-editor.min.css",
               "node_modules/medium-editor/dist/css/themes/default.css",
               "node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.min.css"

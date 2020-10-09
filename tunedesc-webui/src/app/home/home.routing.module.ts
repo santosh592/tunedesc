@@ -2,12 +2,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
 
-
-
-
 const routes: Routes = [
-
-    {
+  {
         path: '',
         pathMatch: 'full',
         
@@ -16,8 +12,6 @@ const routes: Routes = [
           title: 'Home Component'
         }
       }
-
-
 ];
 
 @NgModule({

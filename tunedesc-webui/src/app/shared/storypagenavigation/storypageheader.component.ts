@@ -2,10 +2,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CreatePostService } from 'src/app/service/createpost.service';
-
 import { AutheticationService } from 'src/app/service/authentication.service';
 import { ErrorMessages } from 'src/app/constants/errormessages';
-
 
 @Component({
     moduleId: module.id,
@@ -15,11 +13,8 @@ import { ErrorMessages } from 'src/app/constants/errormessages';
 
 })
 
-
 export class StoryPageHeaderComponent implements OnInit {
-    postTypeList = {};
-    userdetails = {};
-    posttype: string;
+    
     @Input()
     typeOfPosts: any = []
     @Input()
@@ -27,21 +22,19 @@ export class StoryPageHeaderComponent implements OnInit {
 
     @Input()
     login: boolean = false;
-    activeClass: string;
-
-
-    user: string = null;
-
     @Input() username: string;
     @Input() password: string;
 
+    postTypeList = {};
+    userdetails = {};
+    posttype: string;
+    activeClass: string;
+    user: string = null;
     authdata = {};
 
     invalidcredit: string;
     error: string;
 
-    //@Input()
-    //private creatAdService: CreateAdService
     constructor(private router: Router, private createpostservice: CreatePostService, private authenticationService: AutheticationService) {
 
     }
@@ -53,9 +46,7 @@ export class StoryPageHeaderComponent implements OnInit {
             this.postTypeList = data;
             console.log(this.postTypeList);
             this.typeOfPosts = this.postTypeList["listOfobjects"]
-            //this.typeList=this.typeOfPosts["type"]
-            // console.log(this.typeList)
-            //throw new Error("Method not implemented.");
+
         })
 
         this.authenticationService.getUserDetails(localStorage.getItem('token')).subscribe((data: any) => {
@@ -67,7 +58,6 @@ export class StoryPageHeaderComponent implements OnInit {
             } catch (error) {
                 console.log("Did not get respose for userdetails")
             }
-
 
         })
 
@@ -92,9 +82,7 @@ export class StoryPageHeaderComponent implements OnInit {
         this.router.navigate(['/login']);
     }
 
-
     goToLogin() {
-        //this.router.navigate(['/login']);
         this.router.navigate(['/login']);
     }
 
@@ -102,9 +90,7 @@ export class StoryPageHeaderComponent implements OnInit {
         this.router.navigate(['/signup']);
     }
 
-
     goToDashboard() {
-
         this.router.navigate(['/dashboard'])
 
     }
@@ -124,20 +110,13 @@ export class StoryPageHeaderComponent implements OnInit {
         localStorage.setItem('posttype', posttype)
     }
 
-
-
     goToforgetpwd() {
         this.router.navigate(['/forgetpassword']);
     }
-   
-
 
     loginAuthentication() {
-
-
         this.authenticationService.getauthToken(this.username, this.password).subscribe(data => {
-            //this.authdata = data.access_token;
-            // console.log(data.access_token);
+
             console.log(data);
             if (data.access_token != null) {
                 this.router.navigate(['/app'])
@@ -150,8 +129,6 @@ export class StoryPageHeaderComponent implements OnInit {
 
                 if (this.error = ErrorMessages.INVALID_GRANT) this.invalidcredit = ErrorMessages.INCORRECT_USERDETAILS
             }
-
-
         )
     }
 }

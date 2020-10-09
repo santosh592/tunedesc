@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-
-
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
@@ -14,7 +12,6 @@ export class HttpService {
 
     errormessage = {};
 
-
     constructor(private http: Http) {
 
     }
@@ -23,7 +20,6 @@ export class HttpService {
         let myHeaders = new Headers();
         myHeaders.append('Content-Type', 'application/json');
         myHeaders.append("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
-
 
         var token = "?access_token=" + usertoken
         let options1 = new RequestOptions({ headers: myHeaders });
@@ -73,15 +69,12 @@ export class HttpService {
         myheader.append('Content-Type', 'application/json');
         myheader.append("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
 
-
-
         var authRequest = '?grant_type=password&username=' + username + '&password=' + password + '&scope=read&client_id=tunedesc&client_secret=txsLnIXH1FBAHhCppqAnZcESq1Gku3df'
         let options2 = new RequestOptions({ headers: myheader });
         console.log(username, password)
 
         return this.http.post(this.url + ':' + port + restEndPoint + authRequest, options2).map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-
 
     }
 

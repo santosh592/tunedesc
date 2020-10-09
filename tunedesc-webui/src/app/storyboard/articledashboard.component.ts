@@ -17,16 +17,17 @@ import { ErrorMessages } from '../constants/errormessages';
 
 
 export class ArticleDashboardComponent implements OnInit {
+
+    @Input() username: string;
+    @Input() password: string;
+    @Input()
+    user: string = null;
+
     postTypeList = {};
     userdetails = {};
     posttype: string;
     login: boolean = true;
     activeClass: String;
-
-    @Input() username: string;
-    @Input() password: string;
-    //@Input()
-    //private creatAdService: CreateAdService
     authdata = {};
 
     invalidcredit: string;
@@ -57,8 +58,7 @@ export class ArticleDashboardComponent implements OnInit {
 
     diffTimeUpdated: any = 0
 
-    @Input()
-    user: string = null;
+
     constructor(private router: Router, private createpostservice: CreatePostService, private authenticationService: AutheticationService) {
 
     }
@@ -93,16 +93,11 @@ export class ArticleDashboardComponent implements OnInit {
         }
     }
 
-
-
-
     goToHome() {
         this.router.navigate(['/login']);
     }
 
-
     goToLogin() {
-        //this.router.navigate(['/login']);
         this.router.navigate(['/login']);
     }
 
@@ -112,7 +107,6 @@ export class ArticleDashboardComponent implements OnInit {
 
 
     goToDashboard() {
-
         this.router.navigate(['/dashboard'])
 
     }
@@ -131,9 +125,8 @@ export class ArticleDashboardComponent implements OnInit {
         this.router.navigate(['specificcontent/' + posttype])
         localStorage.setItem('posttype', posttype)
     }
+
     loginAuthentication() {
-
-
         this.authenticationService.getauthToken(this.username, this.password).subscribe(data => {
 
             console.log(data);
@@ -148,10 +141,9 @@ export class ArticleDashboardComponent implements OnInit {
 
                 if (this.error = ErrorMessages.INVALID_GRANT) this.invalidcredit = ErrorMessages.INCORRECT_USERDETAILS
             }
-
-
         )
     }
+
     goToforgetpwd() {
         this.router.navigate(['/forgetpassword']);
     }

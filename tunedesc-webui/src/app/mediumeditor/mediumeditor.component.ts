@@ -3,8 +3,6 @@ import { Router } from '@angular/router'
 import { AutheticationService } from '../service/authentication.service'
 import { ContentPublishService } from '../service/contentpublishpanel.service';
 import { Input } from '@angular/core';
-import { User } from '../model/user';
-import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 
@@ -24,26 +22,26 @@ export class MediumeditorComponent implements AfterViewInit, OnInit {
   userdetails: any;
   contenttype: string;
   userdata = {};
-  
- 
+
+
   @Input()
   user: string = null;
   // authenticationService: AutheticationService;
-  
+
   tags: string[] = ['html', 'Angular'];
   form: FormGroup;
 
   constructor(private router: Router, private contentpublishservice: ContentPublishService,
-    private authenticationService: AutheticationService, private changeDetectorRef: ChangeDetectorRef,private fb: FormBuilder) {
+    private authenticationService: AutheticationService, private changeDetectorRef: ChangeDetectorRef, private fb: FormBuilder) {
 
   }
   @ViewChild('container', {
     static: true
   }) container: ElementRef;
   ngAfterViewInit(): void {
-    
+
     this.editor = new MediumEditor(this.container.nativeElement, {
-      
+
       paste: {
         /* This example includes the default options for paste,
            if nothing is passed this is what it used */
@@ -72,8 +70,8 @@ export class MediumeditorComponent implements AfterViewInit, OnInit {
         updateOnEmptySelection: false
       }
     });
-     this.editor
-    
+    this.editor
+
     //this.changeDetectorRef.detectChanges
   }
   ngOnChanges(change) {
@@ -88,11 +86,8 @@ export class MediumeditorComponent implements AfterViewInit, OnInit {
 
 
   ngOnInit(): void {
-    
     try {
-
       this.user = localStorage.getItem('username');
-
     } catch (error) {
       console.log("Did not get respose for userdetails")
     }
@@ -104,8 +99,6 @@ export class MediumeditorComponent implements AfterViewInit, OnInit {
   }
 
   publishContent(): void {
-
-
     this.post = this.editor.origElements
     console.log(this.post)
     this.contentpublishservice.publishContent(this.post, this.title, this.userdetails["id"], this.contenttype).subscribe((data: any) => {
@@ -121,9 +114,6 @@ export class MediumeditorComponent implements AfterViewInit, OnInit {
     });
 
   }
-  
-
-  
 
 }
 

@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 
 @Component({
     moduleId: module.id,
-    selector: 'home',
-
+    selector: 'landing-page',
     templateUrl: 'home.component.html',
 
 })

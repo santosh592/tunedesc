@@ -1,6 +1,5 @@
 import { Router } from '@angular/router';
 import { AutheticationService } from '../service/authentication.service'
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, Input } from '@angular/core';
 import 'rxjs/add/operator/catch';
 import { ErrorMessages } from '../constants/errormessages';
@@ -8,11 +7,9 @@ import { ErrorMessages } from '../constants/errormessages';
 @Component({
     moduleId: module.id,
     selector: 'login',
-
     templateUrl: 'login.component.html'
 
 })
-
 
 export class LoginComponent {
 
@@ -22,6 +19,7 @@ export class LoginComponent {
     authdata = {};
     userdetails = {};
     invalidcredit: string;
+    error: string;
 
 
     constructor(private router: Router, private authenticationService: AutheticationService) { }
@@ -32,13 +30,10 @@ export class LoginComponent {
         this.router.navigate(['/signup'])
     }
 
-    error: string;
+
     loginAuthentication() {
-
-
         this.authenticationService.getauthToken(this.username, this.password).subscribe(data => {
-            //this.authdata = data.access_token;
-           // console.log(data.access_token);
+
             console.log(data);
             if (data.access_token != null) {
                 this.router.navigate(['/app'])
@@ -48,11 +43,9 @@ export class LoginComponent {
             (error) => {
                 this.error = error;
                 console.log(error)
-                
-                if (this.error = ErrorMessages.INVALID_GRANT) this.invalidcredit=ErrorMessages.INCORRECT_USERDETAILS
+
+                if (this.error = ErrorMessages.INVALID_GRANT) this.invalidcredit = ErrorMessages.INCORRECT_USERDETAILS
             }
-
-
         )
     }
 }
